@@ -52,21 +52,24 @@ project(*ClientTimeSync) : dcpsexe, svc_utils {
   }
 
   Header_Files {
-	DataReaderAux2Strings.h
-        DataWriterAux2Strings.h
+	DataReader_Aux2Strings.h
+        DataWriter_Aux2Strings.h
 	ParticipantClass.h
 	SubscriberClass.h
 	PublisherClass.h
+	TimeSync.h
   }
 
   Source_Files {
-    DataReaderAux2Strings.cpp
-    DataReaderListenerImplAux2Strings.cpp
-    DataWriterAux2Strings.cpp
+    DataReader_Aux2Strings.cpp
+    DataReaderListenerImpl_Aux2Strings.cpp
+    DataWriter_Aux2Strings.cpp
     ParticipantClass.cpp
     PublisherClass.cpp
     SubscriberClass.cpp
     main.cpp
+    TimeSyncClient.cpp
+    TimeSyncServer.cpp
   }
 
   Documentation_Files {

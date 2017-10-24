@@ -7,11 +7,19 @@ void TimestampThread();
 void AddNextDelay(Mri::Aux2Strings auxMessage, long timestampNow);
 
 
+
+
 long GetTimestamp();
 
 void SetTimestamp(long timestamp_perfect);
 
 bool SendSyncMessage();
+
+
+bool SendTimeSyncMessage(Mri::Aux2Strings auxMessage); //timesync server
+
+bool ParseAux2StringsServer(Mri::Aux2Strings aux_message);
+
 
 bool SynchronizeTime();
 bool ParseAux2Strings(Mri::Aux2Strings aux_message);

@@ -302,6 +302,7 @@
     <ClCompile Include="main.cpp">
     </ClCompile>
     <ClCompile Include="TimeSyncClient.cpp" />
+    <ClCompile Include="TimeSyncServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataReader_Aux2Strings.h" />
