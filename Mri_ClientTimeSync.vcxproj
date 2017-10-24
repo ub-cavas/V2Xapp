@@ -287,10 +287,12 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp" />
     <ClCompile Include="DataReader_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="DataReaderListenerImpl_Aux2Strings.cpp">
     </ClCompile>
+    <ClCompile Include="DataReader_V2XMessage.cpp" />
     <ClCompile Include="DataWriter_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="ParticipantClass.cpp">
@@ -305,7 +307,10 @@
     <ClCompile Include="TimeSyncServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataReaderListenerImpl.h" />
+    <ClInclude Include="DataReaderListenerImpl_V2XMessage.h" />
     <ClInclude Include="DataReader_Aux2Strings.h" />
+    <ClInclude Include="DataReader_V2XMessage.h" />
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />

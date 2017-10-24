@@ -46,6 +46,12 @@
     <ClCompile Include="TimeSyncServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DataReader_V2XMessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ParticipantClass.h">
@@ -64,6 +70,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataWriter_Aux2Strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataReader_V2XMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataReaderListenerImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataReaderListenerImpl_V2XMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
