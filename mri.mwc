@@ -1,0 +1,4 @@
+workspace {
+  cmdline += -relative DDS_ROOT=$DDS_ROOT
+}
+

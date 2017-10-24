@@ -1,0 +1,74 @@
+
+project(*Common) : dcps {
+
+sharedname     = mriCommon
+  dynamicflags   = MRICOMMON_BUILD_DLL
+  libout         = .
+  requires += tao_orbsvcs
+  requires += no_opendds_safety_profile
+  after    += Svc_Utils
+  includes      += $(TAO_ROOT)/orbsvcs
+  includes  += $(DDS_ROOT)
+  idlflags      += -I$(TAO_ROOT)/orbsvcs \
+                   -Wb,export_macro=mriCommon_Export \
+                   -Wb,export_include=mriCommon_Export.h
+  dcps_ts_flags += -Wb,export_macro=mriCommon_Export
+
+
+
+
+TypeSupport_Files {
+    Mri.idl
+  }
+
+IDL_Files {
+    MriTypeSupport.idl
+    Mri.idl
+  }
+
+Header_Files {
+    MriTypeSupportImpl.h
+  }
+
+  Source_Files {
+    MriTypeSupportImpl.cpp
+  }
+}
+
+
+
+project(*ClientTimeSync) : dcpsexe, svc_utils {
+  after += *Common
+  exename   = clientTimeSync
+
+  includes += $(TAO_ROOT)/orbsvcs
+  libs += mriCommon
+  dynamicflags = MRICOMMON_HAS_DLL
+
+  TypeSupport_Files {
+  }
+
+  IDL_Files {
+  }
+
+  Header_Files {
+	DataReaderAux2Strings.h
+        DataWriterAux2Strings.h
+	ParticipantClass.h
+	SubscriberClass.h
+	PublisherClass.h
+  }
+
+  Source_Files {
+    DataReaderAux2Strings.cpp
+    DataReaderListenerImplAux2Strings.cpp
+    DataWriterAux2Strings.cpp
+    ParticipantClass.cpp
+    PublisherClass.cpp
+    SubscriberClass.cpp
+    main.cpp
+  }
+
+  Documentation_Files {
+  }
+}

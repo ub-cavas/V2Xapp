@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Mri_Common</ProjectName>
+    <ProjectGuid>{DBEDE9F3-FECA-1BAD-6A4B-8A630000002E}</ProjectGuid>
+    <RootNamespace>Mri_Common</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\Mri_Common\I386\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mriCommond</TargetName>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\Mri_Common\I386\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mriCommon</TargetName>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug\Mri_Common\AMD64\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mriCommond</TargetName>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release\Mri_Common\AMD64\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mriCommon</TargetName>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MRICOMMON_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ProgramDataBaseFileName>Debug\Mri_Common\I386\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4355;4250;4290;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)mriCommond.dll</OutputFile>
+      <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(OutDir)\mriCommond_dll.pdb</ProgramDatabaseFile>
+      <ImportLibrary>.\mriCommond.lib</ImportLibrary>
+    </Link>
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+     Check if msbuild has any support for a custom post-cleaning step
+ -->
+<!-- No known equivalent for DeploymentTool in vc10:
+-->
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MRICOMMON_BUILD_DLL;NDEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4355;4250;4290;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ACE.lib;TAO.lib;TAO_AnyTypeCode.lib;TAO_PortableServer.lib;TAO_CodecFactory.lib;TAO_PI.lib;TAO_BiDirGIOP.lib;OpenDDS_Dcps.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)mriCommon.dll</OutputFile>
+      <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>.\mriCommon.lib</ImportLibrary>
+    </Link>
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+     Check if msbuild has any support for a custom post-cleaning step
+ -->
+<!-- No known equivalent for DeploymentTool in vc10:
+-->
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TargetEnvironment>x64</TargetEnvironment>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MRICOMMON_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ProgramDataBaseFileName>Debug\Mri_Common\AMD64\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4355;4250;4290;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)mriCommond.dll</OutputFile>
+      <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(OutDir)\mriCommond_dll.pdb</ProgramDatabaseFile>
+      <ImportLibrary>.\mriCommond.lib</ImportLibrary>
+<!--
+  Though we can set TargetMachine explicitly, VC++
+  can figure it out by project type. We don't need
+  to set it by ourselves.
+-->
+<!--      <TargetMachine>0</TargetMachine>-->
+      <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+     Check if msbuild has any support for a custom post-cleaning step
+ -->
+<!-- No known equivalent for DeploymentTool in vc10:
+-->
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TargetEnvironment>x64</TargetEnvironment>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MRICOMMON_BUILD_DLL;NDEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4355;4250;4290;4503;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>1033</Culture>
+      <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ACE.lib;TAO.lib;TAO_AnyTypeCode.lib;TAO_PortableServer.lib;TAO_CodecFactory.lib;TAO_PI.lib;TAO_BiDirGIOP.lib;OpenDDS_Dcps.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)mriCommon.dll</OutputFile>
+      <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>.\mriCommon.lib</ImportLibrary>
+<!--
+  Though we can set TargetMachine explicitly, VC++
+  can figure it out by project type. We don't need
+  to set it by ourselves.
+-->
+<!--      <TargetMachine>0</TargetMachine>-->
+      <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+     Check if msbuild has any support for a custom post-cleaning step
+ -->
+<!-- No known equivalent for DeploymentTool in vc10:
+-->
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MriC.cpp">
+    </ClCompile>
+    <ClCompile Include="MriS.cpp">
+    </ClCompile>
+    <ClCompile Include="MriTypeSupportC.cpp">
+    </ClCompile>
+    <ClCompile Include="MriTypeSupportImpl.cpp">
+    </ClCompile>
+    <ClCompile Include="MriTypeSupportS.cpp">
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MriC.h" />
+    <ClInclude Include="MriS.h" />
+    <ClInclude Include="MriTypeSupportC.h" />
+    <ClInclude Include="MriTypeSupportImpl.h" />
+    <ClInclude Include="MriTypeSupportS.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mri.mpc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="mri.mwc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="MriTypeSupport.idl">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;MriTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "$(ACE_ROOT)\bin\tao_idl on MriTypeSupport.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MriTypeSupportC.cpp;MriTypeSupportC.h;MriTypeSupportC.inl;MriTypeSupportS.cpp;MriTypeSupportS.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;MriTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "$(ACE_ROOT)\bin\tao_idl on MriTypeSupport.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MriTypeSupportC.cpp;MriTypeSupportC.h;MriTypeSupportC.inl;MriTypeSupportS.cpp;MriTypeSupportS.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;MriTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "$(ACE_ROOT)\bin\tao_idl on MriTypeSupport.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MriTypeSupportC.cpp;MriTypeSupportC.h;MriTypeSupportC.inl;MriTypeSupportS.cpp;MriTypeSupportS.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;MriTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "$(ACE_ROOT)\bin\tao_idl on MriTypeSupport.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MriTypeSupportC.cpp;MriTypeSupportC.h;MriTypeSupportC.inl;MriTypeSupportS.cpp;MriTypeSupportS.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Mri.idl">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St -Wb,export_macro=mriCommon_Export &quot;Mri.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;Mri.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "..\..\..\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Mri.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MriC.cpp;MriC.h;MriC.inl;MriS.cpp;MriS.h;MriTypeSupport.idl;MriTypeSupportImpl.cpp;MriTypeSupportImpl.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St -Wb,export_macro=mriCommon_Export &quot;Mri.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;Mri.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "..\..\..\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Mri.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MriC.cpp;MriC.h;MriC.inl;MriS.cpp;MriS.h;MriTypeSupport.idl;MriTypeSupportImpl.cpp;MriTypeSupportImpl.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St -Wb,export_macro=mriCommon_Export &quot;Mri.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;Mri.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "..\..\..\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Mri.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MriC.cpp;MriC.h;MriC.inl;MriS.cpp;MriS.h;MriTypeSupport.idl;MriTypeSupportImpl.cpp;MriTypeSupportImpl.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St -Wb,export_macro=mriCommon_Export &quot;Mri.idl&quot; &amp;&amp; cmd /c &quot;$(ACE_ROOT)\bin\tao_idl -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I$(TAO_ROOT) -Sa -St -I..\..\.. -I$(TAO_ROOT)/orbsvcs -Wb,export_macro=mriCommon_Export -Wb,export_include=mriCommon_Export.h &quot;Mri.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "..\..\..\bin\opendds_idl and $(ACE_ROOT)\bin\tao_idl on Mri.idl"</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MriC.cpp;MriC.h;MriC.inl;MriS.cpp;MriS.h;MriTypeSupport.idl;MriTypeSupportImpl.cpp;MriTypeSupportImpl.h</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MriC.inl" />
+    <None Include="MriTypeSupportC.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

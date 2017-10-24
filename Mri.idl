@@ -1,0 +1,26 @@
+module Mri {
+
+#pragma DCPS_DATA_TYPE "Mri::Aux2Strings"
+
+struct Aux2Strings {
+  long receiverId;
+  long senderId;
+  string str1;
+  string str2;
+  string tag;
+  };
+
+#pragma DCPS_DATA_TYPE "Mri::V2XMessage"
+#pragma DCPS_DATA_KEY "Mri::V2XMessage sender_id"
+
+struct V2XMessage
+{
+	long  sender_id;                          // sender vehicle id
+	long  sender_timestamp;        // the time of message creation
+	string  message;                             // v2x message
+	long  recipient_id;                      // recipient vehicle id
+	long  recipient_timestamp;    // the time when the message should be displayed
+};
+
+
+};
