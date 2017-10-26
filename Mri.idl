@@ -23,4 +23,31 @@ struct V2XMessage
 };
 
 
+
+#pragma DCPS_DATA_TYPE "Mri::VehData"
+
+struct VehData
+{
+	long  timestamp;				//tick every 10 ms*, all applications have to be synchronized ; Mri
+	long  vehicle_id;
+	long  vehicle_type;				/* vehicle type number from VISSIM */
+	string  model_file_name;		/* *.v3d */
+	long  color;					/* RGB */
+	double position_x;				/* in m */
+	double position_y;				/* in m */
+	double position_z;				/* in m */
+	double orient_heading;			/* in radians */
+	double orient_pitch;			/* in radians */
+	double orient_roll;				//in radians ; Mri
+	double speed;					/* in m/s */
+	long leading_vehicle_id;		/* relevant vehicle in front */
+	long trailing_vehicle_id;		/* next vehicle back on the same lane */
+	long link_id;
+	string link_name;				/* empty if not set in VISSIM */
+	double link_coordinate;			/* in m */
+	long  lane_index;				/* 0 = rightmost */
+	long  turning_indicator;		/* 1 = left, 0 = none, -1 = right */
+};
+
+
 };

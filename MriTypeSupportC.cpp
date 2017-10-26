@@ -795,3 +795,382 @@ Mri::V2XMessageDataReader::marshal (TAO_OutputCDR & /* cdr */)
   return false;
 }
 
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+
+// Traits specializations for Mri::VehDataTypeSupport.
+
+Mri::VehDataTypeSupport_ptr
+TAO::Objref_Traits<Mri::VehDataTypeSupport>::duplicate (
+    Mri::VehDataTypeSupport_ptr p)
+{
+  return Mri::VehDataTypeSupport::_duplicate (p);
+}
+
+void
+TAO::Objref_Traits<Mri::VehDataTypeSupport>::release (
+    Mri::VehDataTypeSupport_ptr p)
+{
+  ::CORBA::release (p);
+}
+
+Mri::VehDataTypeSupport_ptr
+TAO::Objref_Traits<Mri::VehDataTypeSupport>::nil (void)
+{
+  return Mri::VehDataTypeSupport::_nil ();
+}
+
+::CORBA::Boolean
+TAO::Objref_Traits<Mri::VehDataTypeSupport>::marshal (
+    const Mri::VehDataTypeSupport_ptr p,
+    TAO_OutputCDR & cdr)
+{
+  return ::CORBA::Object::marshal (p, cdr);
+}
+
+Mri::VehDataTypeSupport::VehDataTypeSupport (void)
+{}
+
+Mri::VehDataTypeSupport::~VehDataTypeSupport (void)
+{
+}
+
+Mri::VehDataTypeSupport_ptr
+Mri::VehDataTypeSupport::_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataTypeSupport::_duplicate (
+      dynamic_cast<VehDataTypeSupport_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataTypeSupport_ptr
+Mri::VehDataTypeSupport::_unchecked_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataTypeSupport::_duplicate (
+      dynamic_cast<VehDataTypeSupport_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataTypeSupport_ptr
+Mri::VehDataTypeSupport::_nil (void)
+{
+  return 0;
+}
+
+Mri::VehDataTypeSupport_ptr
+Mri::VehDataTypeSupport::_duplicate (VehDataTypeSupport_ptr obj)
+{
+  if (! ::CORBA::is_nil (obj))
+    {
+      obj->_add_ref ();
+    }
+  return obj;
+}
+
+void
+Mri::VehDataTypeSupport::_tao_release (VehDataTypeSupport_ptr obj)
+{
+  ::CORBA::release (obj);
+}
+
+::CORBA::Boolean
+Mri::VehDataTypeSupport::_is_a (const char *value)
+{
+  if (
+      ACE_OS::strcmp (
+          value,
+          "IDL:DDS/TypeSupport:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:OpenDDS/DCPS/TypeSupport:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:Mri/VehDataTypeSupport:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/LocalObject:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/Object:1.0"
+        ) == 0
+    )
+    {
+      return true; // success using local knowledge
+    }
+  else
+    {
+      return false;
+    }
+}
+
+const char* Mri::VehDataTypeSupport::_interface_repository_id (void) const
+{
+  return "IDL:Mri/VehDataTypeSupport:1.0";
+}
+
+::CORBA::Boolean
+Mri::VehDataTypeSupport::marshal (TAO_OutputCDR & /* cdr */)
+{
+  return false;
+}
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+
+// Traits specializations for Mri::VehDataDataWriter.
+
+Mri::VehDataDataWriter_ptr
+TAO::Objref_Traits<Mri::VehDataDataWriter>::duplicate (
+    Mri::VehDataDataWriter_ptr p)
+{
+  return Mri::VehDataDataWriter::_duplicate (p);
+}
+
+void
+TAO::Objref_Traits<Mri::VehDataDataWriter>::release (
+    Mri::VehDataDataWriter_ptr p)
+{
+  ::CORBA::release (p);
+}
+
+Mri::VehDataDataWriter_ptr
+TAO::Objref_Traits<Mri::VehDataDataWriter>::nil (void)
+{
+  return Mri::VehDataDataWriter::_nil ();
+}
+
+::CORBA::Boolean
+TAO::Objref_Traits<Mri::VehDataDataWriter>::marshal (
+    const Mri::VehDataDataWriter_ptr p,
+    TAO_OutputCDR & cdr)
+{
+  return ::CORBA::Object::marshal (p, cdr);
+}
+
+Mri::VehDataDataWriter::VehDataDataWriter (void)
+{}
+
+Mri::VehDataDataWriter::~VehDataDataWriter (void)
+{
+}
+
+Mri::VehDataDataWriter_ptr
+Mri::VehDataDataWriter::_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataDataWriter::_duplicate (
+      dynamic_cast<VehDataDataWriter_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataDataWriter_ptr
+Mri::VehDataDataWriter::_unchecked_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataDataWriter::_duplicate (
+      dynamic_cast<VehDataDataWriter_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataDataWriter_ptr
+Mri::VehDataDataWriter::_nil (void)
+{
+  return 0;
+}
+
+Mri::VehDataDataWriter_ptr
+Mri::VehDataDataWriter::_duplicate (VehDataDataWriter_ptr obj)
+{
+  if (! ::CORBA::is_nil (obj))
+    {
+      obj->_add_ref ();
+    }
+  return obj;
+}
+
+void
+Mri::VehDataDataWriter::_tao_release (VehDataDataWriter_ptr obj)
+{
+  ::CORBA::release (obj);
+}
+
+::CORBA::Boolean
+Mri::VehDataDataWriter::_is_a (const char *value)
+{
+  if (
+      ACE_OS::strcmp (
+          value,
+          "IDL:DDS/Entity:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:DDS/DataWriter:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:Mri/VehDataDataWriter:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/LocalObject:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/Object:1.0"
+        ) == 0
+    )
+    {
+      return true; // success using local knowledge
+    }
+  else
+    {
+      return false;
+    }
+}
+
+const char* Mri::VehDataDataWriter::_interface_repository_id (void) const
+{
+  return "IDL:Mri/VehDataDataWriter:1.0";
+}
+
+::CORBA::Boolean
+Mri::VehDataDataWriter::marshal (TAO_OutputCDR & /* cdr */)
+{
+  return false;
+}
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_cs.cpp:51
+
+// Traits specializations for Mri::VehDataDataReader.
+
+Mri::VehDataDataReader_ptr
+TAO::Objref_Traits<Mri::VehDataDataReader>::duplicate (
+    Mri::VehDataDataReader_ptr p)
+{
+  return Mri::VehDataDataReader::_duplicate (p);
+}
+
+void
+TAO::Objref_Traits<Mri::VehDataDataReader>::release (
+    Mri::VehDataDataReader_ptr p)
+{
+  ::CORBA::release (p);
+}
+
+Mri::VehDataDataReader_ptr
+TAO::Objref_Traits<Mri::VehDataDataReader>::nil (void)
+{
+  return Mri::VehDataDataReader::_nil ();
+}
+
+::CORBA::Boolean
+TAO::Objref_Traits<Mri::VehDataDataReader>::marshal (
+    const Mri::VehDataDataReader_ptr p,
+    TAO_OutputCDR & cdr)
+{
+  return ::CORBA::Object::marshal (p, cdr);
+}
+
+Mri::VehDataDataReader::VehDataDataReader (void)
+{}
+
+Mri::VehDataDataReader::~VehDataDataReader (void)
+{
+}
+
+Mri::VehDataDataReader_ptr
+Mri::VehDataDataReader::_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataDataReader::_duplicate (
+      dynamic_cast<VehDataDataReader_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataDataReader_ptr
+Mri::VehDataDataReader::_unchecked_narrow (
+    ::CORBA::Object_ptr _tao_objref)
+{
+  return VehDataDataReader::_duplicate (
+      dynamic_cast<VehDataDataReader_ptr> (_tao_objref)
+    );
+}
+
+Mri::VehDataDataReader_ptr
+Mri::VehDataDataReader::_nil (void)
+{
+  return 0;
+}
+
+Mri::VehDataDataReader_ptr
+Mri::VehDataDataReader::_duplicate (VehDataDataReader_ptr obj)
+{
+  if (! ::CORBA::is_nil (obj))
+    {
+      obj->_add_ref ();
+    }
+  return obj;
+}
+
+void
+Mri::VehDataDataReader::_tao_release (VehDataDataReader_ptr obj)
+{
+  ::CORBA::release (obj);
+}
+
+::CORBA::Boolean
+Mri::VehDataDataReader::_is_a (const char *value)
+{
+  if (
+      ACE_OS::strcmp (
+          value,
+          "IDL:DDS/Entity:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:DDS/DataReader:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:OpenDDS/DCPS/DataReaderEx:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:Mri/VehDataDataReader:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/LocalObject:1.0"
+        ) == 0 ||
+      ACE_OS::strcmp (
+          value,
+          "IDL:omg.org/CORBA/Object:1.0"
+        ) == 0
+    )
+    {
+      return true; // success using local knowledge
+    }
+  else
+    {
+      return false;
+    }
+}
+
+const char* Mri::VehDataDataReader::_interface_repository_id (void) const
+{
+  return "IDL:Mri/VehDataDataReader:1.0";
+}
+
+::CORBA::Boolean
+Mri::VehDataDataReader::marshal (TAO_OutputCDR & /* cdr */)
+{
+  return false;
+}
+

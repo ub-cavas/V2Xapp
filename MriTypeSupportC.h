@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MRITYPESUPPORTC_N12U0O_H_
-#define _TAO_IDL_MRITYPESUPPORTC_N12U0O_H_
+#ifndef _TAO_IDL_MRITYPESUPPORTC_MDQBVX_H_
+#define _TAO_IDL_MRITYPESUPPORTC_MDQBVX_H_
 
 #include /**/ "ace/pre.h"
 
@@ -838,6 +838,385 @@ namespace Mri
 } // module Mri
 
 // TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:38
+
+namespace Mri
+{
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_sequence\sequence_ch.cpp:102
+
+  typedef ::TAO::DCPS::ZeroCopyDataSeq< Mri::VehData, DCPS_ZERO_COPY_SEQ_DEFAULT_SIZE> VehDataSeq;
+  
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+
+#if !defined (_MRI_VEHDATATYPESUPPORT__VAR_OUT_CH_)
+#define _MRI_VEHDATATYPESUPPORT__VAR_OUT_CH_
+
+  class VehDataTypeSupport;
+  typedef VehDataTypeSupport *VehDataTypeSupport_ptr;
+
+  typedef
+    TAO_Objref_Var_T<
+        VehDataTypeSupport
+      >
+    VehDataTypeSupport_var;
+  
+  typedef
+    TAO_Objref_Out_T<
+        VehDataTypeSupport
+      >
+    VehDataTypeSupport_out;
+
+#endif /* end #if !defined */
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+
+  class mriCommon_Export VehDataTypeSupport
+    : public virtual ::OpenDDS::DCPS::TypeSupport
+  
+  {
+  public:
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+
+    typedef VehDataTypeSupport_ptr _ptr_type;
+    typedef VehDataTypeSupport_var _var_type;
+    typedef VehDataTypeSupport_out _out_type;
+
+    // The static operations.
+    static VehDataTypeSupport_ptr _duplicate (VehDataTypeSupport_ptr obj);
+
+    static void _tao_release (VehDataTypeSupport_ptr obj);
+
+    static VehDataTypeSupport_ptr _narrow (::CORBA::Object_ptr obj);
+    static VehDataTypeSupport_ptr _unchecked_narrow (::CORBA::Object_ptr obj);
+    static VehDataTypeSupport_ptr _nil (void);
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+
+    virtual ::CORBA::Boolean _is_a (const char *type_id);
+    virtual const char* _interface_repository_id (void) const;
+    virtual ::CORBA::Boolean marshal (TAO_OutputCDR &cdr);
+  
+  protected:
+    // Abstract or local interface only.
+    VehDataTypeSupport (void);
+
+    
+
+    virtual ~VehDataTypeSupport (void);
+  
+  private:
+    // Private and unimplemented for concrete interfaces.
+    VehDataTypeSupport (const VehDataTypeSupport &);
+
+    void operator= (const VehDataTypeSupport &);
+  };
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+
+#if !defined (_MRI_VEHDATADATAWRITER__VAR_OUT_CH_)
+#define _MRI_VEHDATADATAWRITER__VAR_OUT_CH_
+
+  class VehDataDataWriter;
+  typedef VehDataDataWriter *VehDataDataWriter_ptr;
+
+  typedef
+    TAO_Objref_Var_T<
+        VehDataDataWriter
+      >
+    VehDataDataWriter_var;
+  
+  typedef
+    TAO_Objref_Out_T<
+        VehDataDataWriter
+      >
+    VehDataDataWriter_out;
+
+#endif /* end #if !defined */
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+
+  class mriCommon_Export VehDataDataWriter
+    : public virtual ::DDS::DataWriter
+  
+  {
+  public:
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+
+    typedef VehDataDataWriter_ptr _ptr_type;
+    typedef VehDataDataWriter_var _var_type;
+    typedef VehDataDataWriter_out _out_type;
+
+    // The static operations.
+    static VehDataDataWriter_ptr _duplicate (VehDataDataWriter_ptr obj);
+
+    static void _tao_release (VehDataDataWriter_ptr obj);
+
+    static VehDataDataWriter_ptr _narrow (::CORBA::Object_ptr obj);
+    static VehDataDataWriter_ptr _unchecked_narrow (::CORBA::Object_ptr obj);
+    static VehDataDataWriter_ptr _nil (void);
+
+    virtual ::DDS::InstanceHandle_t register_instance (
+      const ::Mri::VehData & instance) = 0;
+
+    virtual ::DDS::InstanceHandle_t register_instance_w_timestamp (
+      const ::Mri::VehData & instance,
+      const ::DDS::Time_t & timestamp) = 0;
+
+    virtual ::DDS::ReturnCode_t unregister_instance (
+      const ::Mri::VehData & instance,
+      ::DDS::InstanceHandle_t handle) = 0;
+
+    virtual ::DDS::ReturnCode_t unregister_instance_w_timestamp (
+      const ::Mri::VehData & instance,
+      ::DDS::InstanceHandle_t handle,
+      const ::DDS::Time_t & timestamp) = 0;
+
+    virtual ::DDS::ReturnCode_t write (
+      const ::Mri::VehData & instance_data,
+      ::DDS::InstanceHandle_t handle) = 0;
+
+    virtual ::DDS::ReturnCode_t write_w_timestamp (
+      const ::Mri::VehData & instance_data,
+      ::DDS::InstanceHandle_t handle,
+      const ::DDS::Time_t & source_timestamp) = 0;
+
+    virtual ::DDS::ReturnCode_t dispose (
+      const ::Mri::VehData & instance_data,
+      ::DDS::InstanceHandle_t instance_handle) = 0;
+
+    virtual ::DDS::ReturnCode_t dispose_w_timestamp (
+      const ::Mri::VehData & instance_data,
+      ::DDS::InstanceHandle_t instance_handle,
+      const ::DDS::Time_t & source_timestamp) = 0;
+
+    virtual ::DDS::ReturnCode_t get_key_value (
+      ::Mri::VehData & key_holder,
+      ::DDS::InstanceHandle_t handle) = 0;
+
+    virtual ::DDS::InstanceHandle_t lookup_instance (
+      const ::Mri::VehData & instance_data) = 0;
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+
+    virtual ::CORBA::Boolean _is_a (const char *type_id);
+    virtual const char* _interface_repository_id (void) const;
+    virtual ::CORBA::Boolean marshal (TAO_OutputCDR &cdr);
+  
+  protected:
+    // Abstract or local interface only.
+    VehDataDataWriter (void);
+
+    
+
+    virtual ~VehDataDataWriter (void);
+  
+  private:
+    // Private and unimplemented for concrete interfaces.
+    VehDataDataWriter (const VehDataDataWriter &);
+
+    void operator= (const VehDataDataWriter &);
+  };
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_interface.cpp:751
+
+#if !defined (_MRI_VEHDATADATAREADER__VAR_OUT_CH_)
+#define _MRI_VEHDATADATAREADER__VAR_OUT_CH_
+
+  class VehDataDataReader;
+  typedef VehDataDataReader *VehDataDataReader_ptr;
+
+  typedef
+    TAO_Objref_Var_T<
+        VehDataDataReader
+      >
+    VehDataDataReader_var;
+  
+  typedef
+    TAO_Objref_Out_T<
+        VehDataDataReader
+      >
+    VehDataDataReader_out;
+
+#endif /* end #if !defined */
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:43
+
+  class mriCommon_Export VehDataDataReader
+    : public virtual ::OpenDDS::DCPS::DataReaderEx
+  
+  {
+  public:
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+
+    typedef VehDataDataReader_ptr _ptr_type;
+    typedef VehDataDataReader_var _var_type;
+    typedef VehDataDataReader_out _out_type;
+
+    // The static operations.
+    static VehDataDataReader_ptr _duplicate (VehDataDataReader_ptr obj);
+
+    static void _tao_release (VehDataDataReader_ptr obj);
+
+    static VehDataDataReader_ptr _narrow (::CORBA::Object_ptr obj);
+    static VehDataDataReader_ptr _unchecked_narrow (::CORBA::Object_ptr obj);
+    static VehDataDataReader_ptr _nil (void);
+
+    virtual ::DDS::ReturnCode_t read (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t take (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t read_w_condition (
+      ::Mri::VehDataSeq & data_values,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t take_w_condition (
+      ::Mri::VehDataSeq & data_values,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t read_next_sample (
+      ::Mri::VehData & received_data,
+      ::DDS::SampleInfo & sample_info) = 0;
+
+    virtual ::DDS::ReturnCode_t take_next_sample (
+      ::Mri::VehData & received_data,
+      ::DDS::SampleInfo & sample_info) = 0;
+
+    virtual ::DDS::ReturnCode_t read_instance (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t take_instance (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t read_instance_w_condition (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t take_instance_w_condition (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t read_next_instance (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t take_next_instance (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t a_handle,
+      ::DDS::SampleStateMask sample_states,
+      ::DDS::ViewStateMask view_states,
+      ::DDS::InstanceStateMask instance_states) = 0;
+
+    virtual ::DDS::ReturnCode_t read_next_instance_w_condition (
+      ::Mri::VehDataSeq & data_values,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t previous_handle,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t take_next_instance_w_condition (
+      ::Mri::VehDataSeq & data_values,
+      ::DDS::SampleInfoSeq & sample_infos,
+      ::CORBA::Long max_samples,
+      ::DDS::InstanceHandle_t previous_handle,
+      ::DDS::ReadCondition_ptr a_condition) = 0;
+
+    virtual ::DDS::ReturnCode_t return_loan (
+      ::Mri::VehDataSeq & received_data,
+      ::DDS::SampleInfoSeq & info_seq) = 0;
+
+    virtual ::DDS::ReturnCode_t get_key_value (
+      ::Mri::VehData & key_holder,
+      ::DDS::InstanceHandle_t handle) = 0;
+
+    virtual ::DDS::InstanceHandle_t lookup_instance (
+      const ::Mri::VehData & instance_data) = 0;
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_interface\interface_ch.cpp:140
+
+    virtual ::CORBA::Boolean _is_a (const char *type_id);
+    virtual const char* _interface_repository_id (void) const;
+    virtual ::CORBA::Boolean marshal (TAO_OutputCDR &cdr);
+  
+  protected:
+    // Abstract or local interface only.
+    VehDataDataReader (void);
+
+    
+
+    virtual ~VehDataDataReader (void);
+  
+  private:
+    // Private and unimplemented for concrete interfaces.
+    VehDataDataReader (const VehDataDataReader &);
+
+    void operator= (const VehDataDataReader &);
+  };
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:67
+
+} // module Mri
+
+// TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
@@ -964,6 +1343,60 @@ namespace TAO
     static ::Mri::V2XMessageDataReader_ptr nil (void);
     static ::CORBA::Boolean marshal (
         const ::Mri::V2XMessageDataReader_ptr p,
+        TAO_OutputCDR & cdr);
+  };
+
+#endif /* end #if !defined */
+
+#if !defined (_MRI_VEHDATATYPESUPPORT__TRAITS_)
+#define _MRI_VEHDATATYPESUPPORT__TRAITS_
+
+  template<>
+  struct mriCommon_Export Objref_Traits< ::Mri::VehDataTypeSupport>
+  {
+    static ::Mri::VehDataTypeSupport_ptr duplicate (
+        ::Mri::VehDataTypeSupport_ptr p);
+    static void release (
+        ::Mri::VehDataTypeSupport_ptr p);
+    static ::Mri::VehDataTypeSupport_ptr nil (void);
+    static ::CORBA::Boolean marshal (
+        const ::Mri::VehDataTypeSupport_ptr p,
+        TAO_OutputCDR & cdr);
+  };
+
+#endif /* end #if !defined */
+
+#if !defined (_MRI_VEHDATADATAWRITER__TRAITS_)
+#define _MRI_VEHDATADATAWRITER__TRAITS_
+
+  template<>
+  struct mriCommon_Export Objref_Traits< ::Mri::VehDataDataWriter>
+  {
+    static ::Mri::VehDataDataWriter_ptr duplicate (
+        ::Mri::VehDataDataWriter_ptr p);
+    static void release (
+        ::Mri::VehDataDataWriter_ptr p);
+    static ::Mri::VehDataDataWriter_ptr nil (void);
+    static ::CORBA::Boolean marshal (
+        const ::Mri::VehDataDataWriter_ptr p,
+        TAO_OutputCDR & cdr);
+  };
+
+#endif /* end #if !defined */
+
+#if !defined (_MRI_VEHDATADATAREADER__TRAITS_)
+#define _MRI_VEHDATADATAREADER__TRAITS_
+
+  template<>
+  struct mriCommon_Export Objref_Traits< ::Mri::VehDataDataReader>
+  {
+    static ::Mri::VehDataDataReader_ptr duplicate (
+        ::Mri::VehDataDataReader_ptr p);
+    static void release (
+        ::Mri::VehDataDataReader_ptr p);
+    static ::Mri::VehDataDataReader_ptr nil (void);
+    static ::CORBA::Boolean marshal (
+        const ::Mri::VehDataDataReader_ptr p,
         TAO_OutputCDR & cdr);
   };
 

@@ -102,3 +102,64 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_structure\cdr_op_cs.cpp:52
+
+TAO_BEGIN_VERSIONED_NAMESPACE_DECL
+
+::CORBA::Boolean operator<< (
+    TAO_OutputCDR &strm,
+    const Mri::VehData &_tao_aggregate)
+{
+  return
+    (strm << _tao_aggregate.timestamp) &&
+    (strm << _tao_aggregate.vehicle_id) &&
+    (strm << _tao_aggregate.vehicle_type) &&
+    (strm << _tao_aggregate.model_file_name.in ()) &&
+    (strm << _tao_aggregate.color) &&
+    (strm << _tao_aggregate.position_x) &&
+    (strm << _tao_aggregate.position_y) &&
+    (strm << _tao_aggregate.position_z) &&
+    (strm << _tao_aggregate.orient_heading) &&
+    (strm << _tao_aggregate.orient_pitch) &&
+    (strm << _tao_aggregate.orient_roll) &&
+    (strm << _tao_aggregate.speed) &&
+    (strm << _tao_aggregate.leading_vehicle_id) &&
+    (strm << _tao_aggregate.trailing_vehicle_id) &&
+    (strm << _tao_aggregate.link_id) &&
+    (strm << _tao_aggregate.link_name.in ()) &&
+    (strm << _tao_aggregate.link_coordinate) &&
+    (strm << _tao_aggregate.lane_index) &&
+    (strm << _tao_aggregate.turning_indicator);
+}
+
+::CORBA::Boolean operator>> (
+    TAO_InputCDR &strm,
+    Mri::VehData &_tao_aggregate)
+{
+  return
+    (strm >> _tao_aggregate.timestamp) &&
+    (strm >> _tao_aggregate.vehicle_id) &&
+    (strm >> _tao_aggregate.vehicle_type) &&
+    (strm >> _tao_aggregate.model_file_name.out ()) &&
+    (strm >> _tao_aggregate.color) &&
+    (strm >> _tao_aggregate.position_x) &&
+    (strm >> _tao_aggregate.position_y) &&
+    (strm >> _tao_aggregate.position_z) &&
+    (strm >> _tao_aggregate.orient_heading) &&
+    (strm >> _tao_aggregate.orient_pitch) &&
+    (strm >> _tao_aggregate.orient_roll) &&
+    (strm >> _tao_aggregate.speed) &&
+    (strm >> _tao_aggregate.leading_vehicle_id) &&
+    (strm >> _tao_aggregate.trailing_vehicle_id) &&
+    (strm >> _tao_aggregate.link_id) &&
+    (strm >> _tao_aggregate.link_name.out ()) &&
+    (strm >> _tao_aggregate.link_coordinate) &&
+    (strm >> _tao_aggregate.lane_index) &&
+    (strm >> _tao_aggregate.turning_indicator);
+}
+
+TAO_END_VERSIONED_NAMESPACE_DECL
+
+
+

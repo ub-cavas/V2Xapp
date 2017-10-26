@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:461
 
-#ifndef _TAO_IDL_MRIS_811R7X_H_
-#define _TAO_IDL_MRIS_811R7X_H_
+#ifndef _TAO_IDL_MRIS_WVDKTB_H_
+#define _TAO_IDL_MRIS_WVDKTB_H_
 
 #include /**/ "ace/pre.h"
 
@@ -76,6 +76,19 @@ namespace TAO
     : public
         Var_Size_SArg_Traits_T<
             ::Mri::V2XMessage,
+            TAO::Any_Insert_Policy_Noop
+          >
+  {
+  };
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:947
+
+  template<>
+  class SArg_Traits< ::Mri::VehData>
+    : public
+        Var_Size_SArg_Traits_T<
+            ::Mri::VehData,
             TAO::Any_Insert_Policy_Noop
           >
   {

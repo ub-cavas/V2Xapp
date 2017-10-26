@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MRIC_RUBGOJ_H_
-#define _TAO_IDL_MRIC_RUBGOJ_H_
+#ifndef _TAO_IDL_MRIC_OTCX5V_H_
+#define _TAO_IDL_MRIC_OTCX5V_H_
 
 #include /**/ "ace/pre.h"
 
@@ -145,6 +145,57 @@ namespace Mri
     ::CORBA::Long recipient_timestamp;
   };
 
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_type.cpp:261
+
+  struct VehData;
+
+  typedef
+    ::TAO_Var_Var_T<
+        VehData
+      >
+    VehData_var;
+
+  typedef
+    ::TAO_Out_T<
+        VehData
+      >
+    VehData_out;
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_structure\structure_ch.cpp:51
+
+  struct mriCommon_Export VehData
+  {
+
+    // TAO_IDL - Generated from
+    // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_type.cpp:307
+
+    
+    typedef VehData_var _var_type;
+    typedef VehData_out _out_type;
+    
+    ::CORBA::Long timestamp;
+    ::CORBA::Long vehicle_id;
+    ::CORBA::Long vehicle_type;
+    ::TAO::String_Manager model_file_name;
+    ::CORBA::Long color;
+    ::CORBA::Double position_x;
+    ::CORBA::Double position_y;
+    ::CORBA::Double position_z;
+    ::CORBA::Double orient_heading;
+    ::CORBA::Double orient_pitch;
+    ::CORBA::Double orient_roll;
+    ::CORBA::Double speed;
+    ::CORBA::Long leading_vehicle_id;
+    ::CORBA::Long trailing_vehicle_id;
+    ::CORBA::Long link_id;
+    ::TAO::String_Manager link_name;
+    ::CORBA::Double link_coordinate;
+    ::CORBA::Long lane_index;
+    ::CORBA::Long turning_indicator;
+  };
+
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_ch.cpp:67
 
@@ -181,6 +232,19 @@ namespace TAO
     : public
         Var_Size_Arg_Traits_T<
             ::Mri::V2XMessage,
+            TAO::Any_Insert_Policy_Noop
+          >
+  {
+  };
+
+  // TAO_IDL - Generated from
+  // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_arg_traits.cpp:947
+
+  template<>
+  class Arg_Traits< ::Mri::VehData>
+    : public
+        Var_Size_Arg_Traits_T<
+            ::Mri::VehData,
             TAO::Any_Insert_Policy_Noop
           >
   {
@@ -225,6 +289,19 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
 mriCommon_Export ::CORBA::Boolean operator<< (TAO_OutputCDR &, const Mri::V2XMessage &);
 mriCommon_Export ::CORBA::Boolean operator>> (TAO_InputCDR &, Mri::V2XMessage &);
+
+TAO_END_VERSIONED_NAMESPACE_DECL
+
+
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_structure\cdr_op_ch.cpp:46
+
+
+TAO_BEGIN_VERSIONED_NAMESPACE_DECL
+
+mriCommon_Export ::CORBA::Boolean operator<< (TAO_OutputCDR &, const Mri::VehData &);
+mriCommon_Export ::CORBA::Boolean operator>> (TAO_InputCDR &, Mri::VehData &);
 
 TAO_END_VERSIONED_NAMESPACE_DECL
 

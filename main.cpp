@@ -49,14 +49,14 @@ int main(int argc, char* argv[]) {
 	DataWriter_V2XMessage writer_v2xMessage(participant.m_participant, publisher.m_publisher,"Mri_V2XtoNS3");
 
 	Mri::V2XMessage v2x_message;
-	for (size_t i = 0; i < 530; i++)
+	for (size_t i = 0; i < 1156530; i++)
 	{
 		v2x_message.sender_id = THIS_APP_ID;
 		v2x_message.sender_timestamp = GetTimestamp();
 		v2x_message.recipient_id = 0;
 		v2x_message.message = "X=12.23;Y=-1636.34";
 		writer_v2xMessage.sendMessage(v2x_message);
-		Sleep(10);	
+		Sleep(50);	
 	}
 
 	threadTimestamp.join();

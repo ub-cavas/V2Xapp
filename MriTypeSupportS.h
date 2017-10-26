@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:461
 
-#ifndef _TAO_IDL_MRITYPESUPPORTS_HBGTF6_H_
-#define _TAO_IDL_MRITYPESUPPORTS_HBGTF6_H_
+#ifndef _TAO_IDL_MRITYPESUPPORTS_ZHD1KB_H_
+#define _TAO_IDL_MRITYPESUPPORTS_ZHD1KB_H_
 
 #include /**/ "ace/pre.h"
 
@@ -64,6 +64,18 @@ namespace TAO
 TAO_END_VERSIONED_NAMESPACE_DECL
 
 
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_sh.cpp:38
+
+namespace POA_Mri
+{
+  
+
+// TAO_IDL - Generated from
+// e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_sh.cpp:69
+
+} // module Mri
 
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_visitor_module\module_sh.cpp:38

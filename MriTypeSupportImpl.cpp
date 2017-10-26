@@ -779,4 +779,837 @@ OPENDDS_END_VERSIONED_NAMESPACE_DECL
 
 /* End STRUCT: V2XMessage */
 
+
+/* Begin STRUCT: VehData */
+
+OPENDDS_BEGIN_VERSIONED_NAMESPACE_DECL
+namespace OpenDDS { namespace DCPS {
+
+void gen_find_size(const Mri::VehData& stru, size_t& size, size_t& padding)
+{
+  ACE_UNUSED_ARG(stru);
+  ACE_UNUSED_ARG(size);
+  ACE_UNUSED_ARG(padding);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.timestamp);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.vehicle_id);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.vehicle_type);
+  find_size_ulong(size, padding);
+  size += ACE_OS::strlen(stru.model_file_name.in()) + 1;
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.color);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.position_x);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.position_y);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.position_z);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.orient_heading);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.orient_pitch);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.orient_roll);
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.speed);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.leading_vehicle_id);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.trailing_vehicle_id);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.link_id);
+  find_size_ulong(size, padding);
+  size += ACE_OS::strlen(stru.link_name.in()) + 1;
+  if ((size + padding) % 8) {
+    padding += 8 - ((size + padding) % 8);
+  }
+  size += gen_max_marshaled_size(stru.link_coordinate);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.lane_index);
+  if ((size + padding) % 4) {
+    padding += 4 - ((size + padding) % 4);
+  }
+  size += gen_max_marshaled_size(stru.turning_indicator);
+}
+
+bool operator<<(Serializer& strm, const Mri::VehData& stru)
+{
+  ACE_UNUSED_ARG(strm);
+  ACE_UNUSED_ARG(stru);
+  return (strm << stru.timestamp)
+    && (strm << stru.vehicle_id)
+    && (strm << stru.vehicle_type)
+    && (strm << stru.model_file_name.in())
+    && (strm << stru.color)
+    && (strm << stru.position_x)
+    && (strm << stru.position_y)
+    && (strm << stru.position_z)
+    && (strm << stru.orient_heading)
+    && (strm << stru.orient_pitch)
+    && (strm << stru.orient_roll)
+    && (strm << stru.speed)
+    && (strm << stru.leading_vehicle_id)
+    && (strm << stru.trailing_vehicle_id)
+    && (strm << stru.link_id)
+    && (strm << stru.link_name.in())
+    && (strm << stru.link_coordinate)
+    && (strm << stru.lane_index)
+    && (strm << stru.turning_indicator);
+}
+
+bool operator>>(Serializer& strm, Mri::VehData& stru)
+{
+  ACE_UNUSED_ARG(strm);
+  ACE_UNUSED_ARG(stru);
+  return (strm >> stru.timestamp)
+    && (strm >> stru.vehicle_id)
+    && (strm >> stru.vehicle_type)
+    && (strm >> stru.model_file_name.out())
+    && (strm >> stru.color)
+    && (strm >> stru.position_x)
+    && (strm >> stru.position_y)
+    && (strm >> stru.position_z)
+    && (strm >> stru.orient_heading)
+    && (strm >> stru.orient_pitch)
+    && (strm >> stru.orient_roll)
+    && (strm >> stru.speed)
+    && (strm >> stru.leading_vehicle_id)
+    && (strm >> stru.trailing_vehicle_id)
+    && (strm >> stru.link_id)
+    && (strm >> stru.link_name.out())
+    && (strm >> stru.link_coordinate)
+    && (strm >> stru.lane_index)
+    && (strm >> stru.turning_indicator);
+}
+
+size_t gen_max_marshaled_size(const Mri::VehData& stru, bool align)
+{
+  ACE_UNUSED_ARG(stru);
+  ACE_UNUSED_ARG(align);
+  return 0;
+}
+
+size_t gen_max_marshaled_size(KeyOnly<const Mri::VehData> stru, bool align)
+{
+  ACE_UNUSED_ARG(stru);
+  ACE_UNUSED_ARG(align);
+  return 0;
+}
+
+void gen_find_size(KeyOnly<const Mri::VehData> stru, size_t& size, size_t& padding)
+{
+  ACE_UNUSED_ARG(stru);
+  ACE_UNUSED_ARG(size);
+  ACE_UNUSED_ARG(padding);
+}
+
+bool operator<<(Serializer& strm, KeyOnly<const Mri::VehData> stru)
+{
+  ACE_UNUSED_ARG(strm);
+  ACE_UNUSED_ARG(stru);
+  return true;
+}
+
+bool operator>>(Serializer& strm, KeyOnly<Mri::VehData> stru)
+{
+  ACE_UNUSED_ARG(strm);
+  ACE_UNUSED_ARG(stru);
+  return true;
+}
+
+}  }
+OPENDDS_END_VERSIONED_NAMESPACE_DECL
+
+
+namespace Mri {
+::DDS::DataWriter_ptr VehDataTypeSupportImpl::create_datawriter()
+{
+  typedef OpenDDS::DCPS::DataWriterImpl_T<VehData> DataWriterImplType;
+  ::DDS::DataWriter_ptr writer_impl = ::DDS::DataWriter::_nil();
+  ACE_NEW_NORETURN(writer_impl,
+                   DataWriterImplType());
+  return writer_impl;
+}
+::DDS::DataReader_ptr VehDataTypeSupportImpl::create_datareader()
+{
+  typedef OpenDDS::DCPS::DataReaderImpl_T<VehData> DataReaderImplType;
+  ::DDS::DataReader_ptr reader_impl = ::DDS::DataReader::_nil();
+  ACE_NEW_NORETURN(reader_impl,
+                   DataReaderImplType());
+  return reader_impl;
+}
+#ifndef OPENDDS_NO_MULTI_TOPIC
+::DDS::DataReader_ptr VehDataTypeSupportImpl::create_multitopic_datareader()
+{
+  typedef OpenDDS::DCPS::DataReaderImpl_T<VehData> DataReaderImplType;
+  typedef OpenDDS::DCPS::MultiTopicDataReader_T<VehData, DataReaderImplType> MultiTopicDataReaderImplType;
+  ::DDS::DataReader_ptr multitopic_reader_impl = ::DDS::DataReader::_nil();
+  ACE_NEW_NORETURN(multitopic_reader_impl,
+                   MultiTopicDataReaderImplType());
+  return multitopic_reader_impl;
+}
+#endif /* !OPENDDS_NO_MULTI_TOPIC */
+#ifndef OPENDDS_NO_CONTENT_SUBSCRIPTION_PROFILE
+const OpenDDS::DCPS::MetaStruct& VehDataTypeSupportImpl::getMetaStructForType()
+{
+  return OpenDDS::DCPS::getMetaStruct<VehData>();
+}
+#endif /* !OPENDDS_NO_CONTENT_SUBSCRIPTION_PROFILE */
+bool VehDataTypeSupportImpl::has_dcps_key()
+{
+  return TraitsType::gen_has_key ();
+}
+const char* VehDataTypeSupportImpl::default_type_name() const
+{
+  return TraitsType::type_name();
+}
+VehDataTypeSupport::_ptr_type VehDataTypeSupportImpl::_narrow(CORBA::Object_ptr obj)
+{
+  return TypeSupportType::_narrow(obj);
+}
+}
+
+#ifndef OPENDDS_NO_CONTENT_SUBSCRIPTION_PROFILE
+OPENDDS_BEGIN_VERSIONED_NAMESPACE_DECL
+namespace OpenDDS { namespace DCPS {
+
+template<>
+struct MetaStructImpl<Mri::VehData> : MetaStruct {
+  typedef Mri::VehData T;
+
+#ifndef OPENDDS_NO_MULTI_TOPIC
+  void* allocate() const { return new T; }
+
+  void deallocate(void* stru) const { delete static_cast<T*>(stru); }
+  size_t numDcpsKeys() const { return 0; }
+#endif /* OPENDDS_NO_MULTI_TOPIC */
+
+  Value getValue(const void* stru, const char* field) const
+  {
+    const Mri::VehData& typed = *static_cast<const Mri::VehData*>(stru);
+    if (std::strcmp(field, "timestamp") == 0) {
+      return typed.timestamp;
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      return typed.vehicle_id;
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      return typed.vehicle_type;
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      return typed.model_file_name.in();
+    }
+    if (std::strcmp(field, "color") == 0) {
+      return typed.color;
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      return typed.position_x;
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      return typed.position_y;
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      return typed.position_z;
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      return typed.orient_heading;
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      return typed.orient_pitch;
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      return typed.orient_roll;
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      return typed.speed;
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      return typed.leading_vehicle_id;
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      return typed.trailing_vehicle_id;
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      return typed.link_id;
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      return typed.link_name.in();
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      return typed.link_coordinate;
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      return typed.lane_index;
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      return typed.turning_indicator;
+    }
+    ACE_UNUSED_ARG(typed);
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct Mri::VehData)");
+  }
+
+  Value getValue(Serializer& ser, const char* field) const
+  {
+    if (std::strcmp(field, "timestamp") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'timestamp' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'timestamp' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'vehicle_id' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'vehicle_id' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'vehicle_type' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'vehicle_type' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      TAO::String_Manager val;
+      if (!(ser >> val.out())) {
+        throw std::runtime_error("Field 'model_file_name' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(ser >> len)) {
+        throw std::runtime_error("String 'model_file_name' length could not be deserialized");
+      }
+      if (!ser.skip(len)) {
+        throw std::runtime_error("String 'model_file_name' contents could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "color") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'color' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'color' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'position_x' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'position_x' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'position_y' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'position_y' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'position_z' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'position_z' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'orient_heading' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'orient_heading' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'orient_pitch' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'orient_pitch' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'orient_roll' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'orient_roll' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'speed' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'speed' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'leading_vehicle_id' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'leading_vehicle_id' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'trailing_vehicle_id' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'trailing_vehicle_id' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'link_id' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'link_id' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      TAO::String_Manager val;
+      if (!(ser >> val.out())) {
+        throw std::runtime_error("Field 'link_name' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(ser >> len)) {
+        throw std::runtime_error("String 'link_name' length could not be deserialized");
+      }
+      if (!ser.skip(len)) {
+        throw std::runtime_error("String 'link_name' contents could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      ACE_CDR::Double val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'link_coordinate' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 8)) {
+        throw std::runtime_error("Field 'link_coordinate' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'lane_index' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'lane_index' could not be skipped");
+      }
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      ACE_CDR::Long val;
+      if (!(ser >> val)) {
+        throw std::runtime_error("Field 'turning_indicator' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!ser.skip(1, 4)) {
+        throw std::runtime_error("Field 'turning_indicator' could not be skipped");
+      }
+    }
+    if (!field[0]) {
+      return 0;
+    }
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not valid for struct Mri::VehData");
+  }
+
+  ComparatorBase::Ptr create_qc_comparator(const char* field, ComparatorBase::Ptr next) const
+  {
+    ACE_UNUSED_ARG(next);
+    if (std::strcmp(field, "timestamp") == 0) {
+      return make_field_cmp(&T::timestamp, next);
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      return make_field_cmp(&T::vehicle_id, next);
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      return make_field_cmp(&T::vehicle_type, next);
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      return make_field_cmp(&T::model_file_name, next);
+    }
+    if (std::strcmp(field, "color") == 0) {
+      return make_field_cmp(&T::color, next);
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      return make_field_cmp(&T::position_x, next);
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      return make_field_cmp(&T::position_y, next);
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      return make_field_cmp(&T::position_z, next);
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      return make_field_cmp(&T::orient_heading, next);
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      return make_field_cmp(&T::orient_pitch, next);
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      return make_field_cmp(&T::orient_roll, next);
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      return make_field_cmp(&T::speed, next);
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      return make_field_cmp(&T::leading_vehicle_id, next);
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      return make_field_cmp(&T::trailing_vehicle_id, next);
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      return make_field_cmp(&T::link_id, next);
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      return make_field_cmp(&T::link_name, next);
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      return make_field_cmp(&T::link_coordinate, next);
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      return make_field_cmp(&T::lane_index, next);
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      return make_field_cmp(&T::turning_indicator, next);
+    }
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct Mri::VehData)");
+  }
+
+#ifndef OPENDDS_NO_MULTI_TOPIC
+  const char** getFieldNames() const
+  {
+    static const char* names[] = {"timestamp", "vehicle_id", "vehicle_type", "model_file_name", "color", "position_x", "position_y", "position_z", "orient_heading", "orient_pitch", "orient_roll", "speed", "leading_vehicle_id", "trailing_vehicle_id", "link_id", "link_name", "link_coordinate", "lane_index", "turning_indicator", 0};
+    return names;
+  }
+
+  const void* getRawField(const void* stru, const char* field) const
+  {
+    if (std::strcmp(field, "timestamp") == 0) {
+      return &static_cast<const T*>(stru)->timestamp;
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      return &static_cast<const T*>(stru)->vehicle_id;
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      return &static_cast<const T*>(stru)->vehicle_type;
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      return &static_cast<const T*>(stru)->model_file_name;
+    }
+    if (std::strcmp(field, "color") == 0) {
+      return &static_cast<const T*>(stru)->color;
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      return &static_cast<const T*>(stru)->position_x;
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      return &static_cast<const T*>(stru)->position_y;
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      return &static_cast<const T*>(stru)->position_z;
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      return &static_cast<const T*>(stru)->orient_heading;
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      return &static_cast<const T*>(stru)->orient_pitch;
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      return &static_cast<const T*>(stru)->orient_roll;
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      return &static_cast<const T*>(stru)->speed;
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      return &static_cast<const T*>(stru)->leading_vehicle_id;
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      return &static_cast<const T*>(stru)->trailing_vehicle_id;
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      return &static_cast<const T*>(stru)->link_id;
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      return &static_cast<const T*>(stru)->link_name;
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      return &static_cast<const T*>(stru)->link_coordinate;
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      return &static_cast<const T*>(stru)->lane_index;
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      return &static_cast<const T*>(stru)->turning_indicator;
+    }
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct Mri::VehData)");
+  }
+
+  void assign(void* lhs, const char* field, const void* rhs,
+    const char* rhsFieldSpec, const MetaStruct& rhsMeta) const
+  {
+    ACE_UNUSED_ARG(lhs);
+    ACE_UNUSED_ARG(field);
+    ACE_UNUSED_ARG(rhs);
+    ACE_UNUSED_ARG(rhsFieldSpec);
+    ACE_UNUSED_ARG(rhsMeta);
+    if (std::strcmp(field, "timestamp") == 0) {
+      static_cast<T*>(lhs)->timestamp = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      static_cast<T*>(lhs)->vehicle_id = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      static_cast<T*>(lhs)->vehicle_type = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      static_cast<T*>(lhs)->model_file_name = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "color") == 0) {
+      static_cast<T*>(lhs)->color = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      static_cast<T*>(lhs)->position_x = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      static_cast<T*>(lhs)->position_y = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      static_cast<T*>(lhs)->position_z = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      static_cast<T*>(lhs)->orient_heading = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      static_cast<T*>(lhs)->orient_pitch = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      static_cast<T*>(lhs)->orient_roll = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      static_cast<T*>(lhs)->speed = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      static_cast<T*>(lhs)->leading_vehicle_id = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      static_cast<T*>(lhs)->trailing_vehicle_id = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      static_cast<T*>(lhs)->link_id = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      static_cast<T*>(lhs)->link_name = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      static_cast<T*>(lhs)->link_coordinate = *static_cast<const CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      static_cast<T*>(lhs)->lane_index = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      static_cast<T*>(lhs)->turning_indicator = *static_cast<const CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct Mri::VehData)");
+  }
+#endif /* OPENDDS_NO_MULTI_TOPIC */
+
+  bool compare(const void* lhs, const void* rhs, const char* field) const
+  {
+    ACE_UNUSED_ARG(lhs);
+    ACE_UNUSED_ARG(field);
+    ACE_UNUSED_ARG(rhs);
+    if (std::strcmp(field, "timestamp") == 0) {
+      return static_cast<const T*>(lhs)->timestamp == static_cast<const T*>(rhs)->timestamp;
+    }
+    if (std::strcmp(field, "vehicle_id") == 0) {
+      return static_cast<const T*>(lhs)->vehicle_id == static_cast<const T*>(rhs)->vehicle_id;
+    }
+    if (std::strcmp(field, "vehicle_type") == 0) {
+      return static_cast<const T*>(lhs)->vehicle_type == static_cast<const T*>(rhs)->vehicle_type;
+    }
+    if (std::strcmp(field, "model_file_name") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->model_file_name.in(), static_cast<const T*>(rhs)->model_file_name.in());
+    }
+    if (std::strcmp(field, "color") == 0) {
+      return static_cast<const T*>(lhs)->color == static_cast<const T*>(rhs)->color;
+    }
+    if (std::strcmp(field, "position_x") == 0) {
+      return static_cast<const T*>(lhs)->position_x == static_cast<const T*>(rhs)->position_x;
+    }
+    if (std::strcmp(field, "position_y") == 0) {
+      return static_cast<const T*>(lhs)->position_y == static_cast<const T*>(rhs)->position_y;
+    }
+    if (std::strcmp(field, "position_z") == 0) {
+      return static_cast<const T*>(lhs)->position_z == static_cast<const T*>(rhs)->position_z;
+    }
+    if (std::strcmp(field, "orient_heading") == 0) {
+      return static_cast<const T*>(lhs)->orient_heading == static_cast<const T*>(rhs)->orient_heading;
+    }
+    if (std::strcmp(field, "orient_pitch") == 0) {
+      return static_cast<const T*>(lhs)->orient_pitch == static_cast<const T*>(rhs)->orient_pitch;
+    }
+    if (std::strcmp(field, "orient_roll") == 0) {
+      return static_cast<const T*>(lhs)->orient_roll == static_cast<const T*>(rhs)->orient_roll;
+    }
+    if (std::strcmp(field, "speed") == 0) {
+      return static_cast<const T*>(lhs)->speed == static_cast<const T*>(rhs)->speed;
+    }
+    if (std::strcmp(field, "leading_vehicle_id") == 0) {
+      return static_cast<const T*>(lhs)->leading_vehicle_id == static_cast<const T*>(rhs)->leading_vehicle_id;
+    }
+    if (std::strcmp(field, "trailing_vehicle_id") == 0) {
+      return static_cast<const T*>(lhs)->trailing_vehicle_id == static_cast<const T*>(rhs)->trailing_vehicle_id;
+    }
+    if (std::strcmp(field, "link_id") == 0) {
+      return static_cast<const T*>(lhs)->link_id == static_cast<const T*>(rhs)->link_id;
+    }
+    if (std::strcmp(field, "link_name") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->link_name.in(), static_cast<const T*>(rhs)->link_name.in());
+    }
+    if (std::strcmp(field, "link_coordinate") == 0) {
+      return static_cast<const T*>(lhs)->link_coordinate == static_cast<const T*>(rhs)->link_coordinate;
+    }
+    if (std::strcmp(field, "lane_index") == 0) {
+      return static_cast<const T*>(lhs)->lane_index == static_cast<const T*>(rhs)->lane_index;
+    }
+    if (std::strcmp(field, "turning_indicator") == 0) {
+      return static_cast<const T*>(lhs)->turning_indicator == static_cast<const T*>(rhs)->turning_indicator;
+    }
+    throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct Mri::VehData)");
+  }
+};
+
+template<>
+const MetaStruct& getMetaStruct<Mri::VehData>()
+{
+  static MetaStructImpl<Mri::VehData> msi;
+  return msi;
+}
+
+bool gen_skip_over(Serializer& ser, Mri::VehData*)
+{
+  ACE_UNUSED_ARG(ser);
+  MetaStructImpl<Mri::VehData>().getValue(ser, "");
+  return true;
+}
+
+}  }
+OPENDDS_END_VERSIONED_NAMESPACE_DECL
+
+#endif
+
+/* End STRUCT: VehData */
+
 /* End MODULE: Mri */
