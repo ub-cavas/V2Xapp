@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MRIC_XGD5LJ_H_
-#define _TAO_IDL_MRIC_XGD5LJ_H_
+#ifndef _TAO_IDL_MRIC_RUBGOJ_H_
+#define _TAO_IDL_MRIC_RUBGOJ_H_
 
 #include /**/ "ace/pre.h"
 

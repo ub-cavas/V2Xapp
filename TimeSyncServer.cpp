@@ -45,7 +45,7 @@ bool SendTimeSyncMessage(Mri::Aux2Strings auxMessage) {
 	m_Message.str1 = auxMessage.str1;
 	m_Message.str2 = s.c_str();
 
-	int success = writer_global->write(m_Message, DDS::HANDLE_NIL);
+	int success = writer_global_aux2strings->write(m_Message, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
 		ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
 	}

@@ -295,6 +295,7 @@
     <ClCompile Include="DataReader_V2XMessage.cpp" />
     <ClCompile Include="DataWriter_Aux2Strings.cpp">
     </ClCompile>
+    <ClCompile Include="DataWriter_V2XMessage.cpp" />
     <ClCompile Include="ParticipantClass.cpp">
     </ClCompile>
     <ClCompile Include="PublisherClass.cpp">
@@ -312,6 +313,7 @@
     <ClInclude Include="DataReader_Aux2Strings.h" />
     <ClInclude Include="DataReader_V2XMessage.h" />
     <ClInclude Include="DataWriter_Aux2Strings.h" />
+    <ClInclude Include="DataWriter_V2XMessage.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />
     <ClInclude Include="SubscriberClass.h" />

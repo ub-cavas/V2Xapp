@@ -1,4 +1,4 @@
-#include "DataWriter_Aux2Strings.h"
+#include "DataWriter_V2XMessage.h"
 #include <dds/DCPS/Marked_Default_Qos.h>
 
 #include <dds/DCPS/WaitSet.h>
@@ -14,27 +14,27 @@ using std::endl;
 using std::string;
 
 
+//topic names: Mri_V2XfromNS3  Mri_V2XtoNS3
 
-
-DataWriter_Aux2Strings::DataWriter_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher)
+DataWriter_V2XMessage::DataWriter_V2XMessage(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher, const char * topic_name)
 {
 	this->participant = participant;
 	this->publisher = publisher;
-	this->topic = createTopic();
+	this->topic = createTopic(topic_name);
 	this->writer = createDataWriter();
-	this->msg_writer = Mri::Aux2StringsDataWriter::_narrow(writer.in());
-	writer_global_aux2strings = msg_writer;
+	this->msg_writer = Mri::V2XMessageDataWriter::_narrow(writer.in());  
+	writer_global_v2xmessage = msg_writer;
 	waitForSubscriber();
 	
 }
 
 
-DataWriter_Aux2Strings::~DataWriter_Aux2Strings()
+DataWriter_V2XMessage::~DataWriter_V2XMessage()
 {
 }
 
 
-void DataWriter_Aux2Strings::waitForSubscriber() {
+void DataWriter_V2XMessage::waitForSubscriber() {
 	// Block until Subscriber is available
 	DDS::StatusCondition_var condition = writer->get_statuscondition();
 	condition->set_enabled_statuses(DDS::PUBLICATION_MATCHED_STATUS);
@@ -73,7 +73,7 @@ void DataWriter_Aux2Strings::waitForSubscriber() {
 
 
 
-void DataWriter_Aux2Strings::sendMessage(const Mri::Aux2Strings& message) {
+void DataWriter_V2XMessage::sendMessage(const Mri::V2XMessage& message) {
 	
 	int success = msg_writer->write(message, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
@@ -84,11 +84,11 @@ void DataWriter_Aux2Strings::sendMessage(const Mri::Aux2Strings& message) {
 
 
 DDS::Topic_var
-DataWriter_Aux2Strings::createTopic()
+DataWriter_V2XMessage::createTopic(const char * topic_name)
 {
 	// Register TypeSupport (Messenger::Message)
-	Mri::Aux2StringsTypeSupport_var  ts =
-		new Mri::Aux2StringsTypeSupportImpl;
+	Mri::V2XMessageTypeSupport_var  ts =
+		new Mri::V2XMessageTypeSupportImpl;
 
 	if (ts->register_type(participant, "") != DDS::RETCODE_OK) {
 		throw std::string("failed to register type support");
@@ -97,7 +97,7 @@ DataWriter_Aux2Strings::createTopic()
 	// Create Topic (Mri_Control)
 	CORBA::String_var type_name = ts->get_type_name();
 	DDS::Topic_var topic =
-		participant->create_topic("Mri_Control",
+		participant->create_topic(topic_name,
 			type_name,
 			TOPIC_QOS_DEFAULT,
 			DDS::TopicListener::_nil(),
@@ -112,7 +112,7 @@ DataWriter_Aux2Strings::createTopic()
 
 
 DDS::DataWriter_var
-DataWriter_Aux2Strings::createDataWriter()
+DataWriter_V2XMessage::createDataWriter()
 {
 	// Create DataWriter
 	DDS::DataWriter_var writer =

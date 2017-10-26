@@ -51,13 +51,13 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
 	DDS::ReturnCode_t error = reader_i->take_next_sample(aux_message, info);
 
 	if (error == DDS::RETCODE_OK) {
-		cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
-		cout << "SampleInfo.instance_state = " << info.instance_state << endl;
+		//cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
+		//cout << "SampleInfo.instance_state = " << info.instance_state << endl;
 
 		if (info.valid_data) {
 			ParseAux2Strings(aux_message);
 
-			cout << "Message: senderId   = " << aux_message.senderId << endl;
+			//cout << "Message: senderId   = " << aux_message.senderId << endl;
 				//<< "         receiverId = " << aux_message.receiverId << std::endl
 				//<< "         str1       = " << aux_message.str1 << std::endl
 				//<< "         str2       = " << aux_message.str2 << std::endl

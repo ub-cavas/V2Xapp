@@ -53,8 +53,9 @@ DataReaderListenerImpl_V2XMessage::on_data_available(DDS::DataReader_ptr reader)
 		if (info.valid_data) {
 			//ParseAux2StringsServer(aux_message);
 
-			cout << "Message: senderId   = " << v2x_message.sender_id << endl;
-				//<< "         receiverId = " << aux_message.receiverId << std::endl
+			cout << "V2X: senderId  = " << v2x_message.sender_id << endl
+				<< "     receiverId = " << v2x_message.recipient_id << endl
+				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;
 				//<< "         str1       = " << aux_message.str1 << std::endl
 				//<< "         str2       = " << aux_message.str2 << std::endl
 				//<< "         tag        = " << aux_message.tag << std::endl;

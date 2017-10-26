@@ -47,7 +47,7 @@ void AddNextDelay(Mri::Aux2Strings auxMessage, long timestampNow) {
 	long substraction = timestampNow - atol(auxMessage.str1);
 	delaySum += substraction;
 	stepsCounter++;
-	std::cout << "Add next delay Steps: " << stepsCounter << std::endl << std::endl;
+	//std::cout << "Add next delay Steps: " << stepsCounter << std::endl << std::endl;
 
 	if (stepsCounter>4)
 	{	//after 5 times do
@@ -59,7 +59,7 @@ void AddNextDelay(Mri::Aux2Strings auxMessage, long timestampNow) {
 
 		SetTimestamp(timestamp_perf);
 
-		std::cout << std::endl << "##############################################" << std::endl << std::endl;
+		std::cout  << "Time synchronized" <<  std::endl << "##############################################" << std::endl << std::endl;
 		
 		
 
@@ -95,13 +95,13 @@ bool SendSyncMessage() {
 	auxMessage.str1 = s.c_str();
 	auxMessage.str2 = "";
 
-	int success = writer_global->write(auxMessage, DDS::HANDLE_NIL);
+	int success = writer_global_aux2strings->write(auxMessage, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
 		ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
 	}
 	//sender.sendMessage(auxMessage);
 
-	std::cout << "Send timesync message at: " << GetTimestamp() << std::endl << std::endl;
+	//std::cout << "Send timesync message at: " << GetTimestamp() << std::endl << std::endl;
 	return true;
 }
 
@@ -140,7 +140,7 @@ bool ParseAux2Strings(Mri::Aux2Strings aux_message)
 	{// time synchronization message
 
 		AddNextDelay(aux_message, GetTimestamp());
-		std::cout << "Timestamp: " << GetTimestamp() << std::endl << std::endl;
+		//std::cout << "Timestamp: " << GetTimestamp() << std::endl << std::endl;
 
 	}
 
@@ -155,8 +155,9 @@ void TimeSynchronization(DDS::DomainParticipant_var m_participant,DDS::Subscribe
 	DataWriter_Aux2Strings sender(m_participant, m_publisher);
 
 	//we have to repeat SynchrinizeTime. It seems it loses a few packets at the very beginning !
+	std::cout << "Time synchronization..."  << std::endl;
 	SynchronizeTime();
-	Sleep(300);
+	Sleep(100);
 	SynchronizeTime();
 
 	//wait 2 sec to finish synchronization process and then dispose reader and sender
