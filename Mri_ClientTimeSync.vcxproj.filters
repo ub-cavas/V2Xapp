@@ -78,13 +78,13 @@
     <ClInclude Include="DataReader_V2XMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataReaderListenerImpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DataReaderListenerImpl_V2XMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataWriter_V2XMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataReaderListenerImpl_Aux2Strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,7 +14,7 @@
 #include <dds/DCPS/LocalObject.h>
 #include <dds/DCPS/Definitions.h>
 
-class DataReaderListenerImpl
+class DataReaderListenerImpl_Aux2Strings
   : public virtual OpenDDS::DCPS::LocalObject<DDS::DataReaderListener> {
 public:
   virtual void on_requested_deadline_missed(

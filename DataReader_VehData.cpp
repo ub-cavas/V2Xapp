@@ -1,33 +1,33 @@
-#include "DataReader_Aux2Strings.h"
-#include "DataReaderListenerImpl_Aux2Strings.h"
+#include "DataReader_V2XMessage.h"
+#include "DataReaderListenerImpl_V2XMessage.h"
 #include <dds/DCPS/Marked_Default_Qos.h>
 
 
 
 
-DataReader_Aux2Strings::DataReader_Aux2Strings(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber)
+DataReader_V2XMessage::DataReader_V2XMessage(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name)
 {
 	this->participant = m_participant;
 	this->subscriber = subscriber;
-	this->topic = createTopic();
+	this->topic = createTopic(topic_name);
 
 	// Create Listener
-	DataReaderListenerImpl_Aux2Strings* listener_impl = new DataReaderListenerImpl_Aux2Strings;
-	DDS::DataReaderListener_var m_listener(listener_impl);
+	DataReaderListenerImpl_V2XMessage* listener_impl_V2XMessage = new DataReaderListenerImpl_V2XMessage;
+	DDS::DataReaderListener_var m_listener(listener_impl_V2XMessage);
 	this->reader = createDataReader(subscriber, topic, m_listener);
 }
 
 
-DataReader_Aux2Strings::~DataReader_Aux2Strings()
+DataReader_V2XMessage::~DataReader_V2XMessage()
 {
 }
 
 DDS::Topic_var
-DataReader_Aux2Strings::createTopic()
+DataReader_V2XMessage::createTopic(const char * topic_name)
 {
 	// Register TypeSupport 
-	Mri::Aux2StringsTypeSupport_var  ts =
-		new Mri::Aux2StringsTypeSupportImpl;
+	Mri::V2XMessageTypeSupport_var  ts =
+		new Mri::V2XMessageTypeSupportImpl;
 
 	if (ts->register_type(participant, "") != DDS::RETCODE_OK) {
 		throw std::string("failed to register type support");
@@ -36,7 +36,7 @@ DataReader_Aux2Strings::createTopic()
 	// Create Topic (Mri_Control)
 	CORBA::String_var type_name = ts->get_type_name();
 	DDS::Topic_var topic =
-		participant->create_topic("Mri_Control",
+		participant->create_topic(topic_name,		//Mri_V2XtoNS3
 			type_name,
 			TOPIC_QOS_DEFAULT,
 			DDS::TopicListener::_nil(),
@@ -52,7 +52,7 @@ DataReader_Aux2Strings::createTopic()
 
 
 DDS::DataReader_var
-DataReader_Aux2Strings::createDataReader(
+DataReader_V2XMessage::createDataReader(
 	DDS::Subscriber_var subscriber,
 	DDS::Topic_var topic,
 	DDS::DataReaderListener_var listener)

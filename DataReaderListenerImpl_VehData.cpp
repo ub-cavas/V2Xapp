@@ -8,7 +8,7 @@
 #include <ace/Log_Msg.h>
 #include <ace/OS_NS_stdlib.h>
 
-#include "DataReaderListenerImpl_Aux2Strings.h"
+#include "DataReaderListenerImpl_V2XMessage.h"
 #include "MriTypeSupportC.h"
 #include "MriTypeSupportImpl.h"
 
@@ -28,15 +28,11 @@ using std::string;
 
 
 void
-DataReaderListenerImpl_Aux2Strings::on_data_available(DDS::DataReader_ptr reader)
+DataReaderListenerImpl_V2XMessage::on_data_available(DDS::DataReader_ptr reader)
 {
-	/* Messenger::MessageDataReader_var reader_i =
-	Messenger::MessageDataReader::_narrow(reader);*/
 
-
-
-	Mri::Aux2StringsDataReader_var reader_i =
-		Mri::Aux2StringsDataReader::_narrow(reader);
+	Mri::V2XMessageDataReader_var reader_i =
+		Mri::V2XMessageDataReader::_narrow(reader);
 
 	if (!reader_i) {
 		ACE_ERROR((LM_ERROR,
@@ -45,20 +41,21 @@ DataReaderListenerImpl_Aux2Strings::on_data_available(DDS::DataReader_ptr reader
 		ACE_OS::exit(-1);
 	}
 
-	Mri::Aux2Strings aux_message;
+	Mri::V2XMessage v2x_message;
 	DDS::SampleInfo info;
 
-	DDS::ReturnCode_t error = reader_i->take_next_sample(aux_message, info);
+	DDS::ReturnCode_t error = reader_i->take_next_sample(v2x_message, info);
 
 	if (error == DDS::RETCODE_OK) {
-		//cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
-		//cout << "SampleInfo.instance_state = " << info.instance_state << endl;
+		cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
+		cout << "SampleInfo.instance_state = " << info.instance_state << endl;
 
 		if (info.valid_data) {
-			ParseAux2Strings(aux_message);
+			//ParseAux2StringsServer(aux_message);
 
-			//cout << "Message: senderId   = " << aux_message.senderId << endl;
-				//<< "         receiverId = " << aux_message.receiverId << std::endl
+			cout << "V2X: senderId  = " << v2x_message.sender_id << endl
+				<< "     receiverId = " << v2x_message.recipient_id << endl
+				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;
 				//<< "         str1       = " << aux_message.str1 << std::endl
 				//<< "         str2       = " << aux_message.str2 << std::endl
 				//<< "         tag        = " << aux_message.tag << std::endl;
@@ -101,28 +98,28 @@ DataReaderListenerImpl_Aux2Strings::on_data_available(DDS::DataReader_ptr reader
 
 
 void
-DataReaderListenerImpl_Aux2Strings::on_requested_deadline_missed(
+DataReaderListenerImpl_V2XMessage::on_requested_deadline_missed(
   DDS::DataReader_ptr /*reader*/,
   const DDS::RequestedDeadlineMissedStatus& /*status*/)
 {
 }
 
 void
-DataReaderListenerImpl_Aux2Strings::on_requested_incompatible_qos(
+DataReaderListenerImpl_V2XMessage::on_requested_incompatible_qos(
   DDS::DataReader_ptr /*reader*/,
   const DDS::RequestedIncompatibleQosStatus& /*status*/)
 {
 }
 
 void
-DataReaderListenerImpl_Aux2Strings::on_sample_rejected(
+DataReaderListenerImpl_V2XMessage::on_sample_rejected(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SampleRejectedStatus& /*status*/)
 {
 }
 
 void
-DataReaderListenerImpl_Aux2Strings::on_liveliness_changed(
+DataReaderListenerImpl_V2XMessage::on_liveliness_changed(
   DDS::DataReader_ptr /*reader*/,
   const DDS::LivelinessChangedStatus& /*status*/)
 {
@@ -131,14 +128,14 @@ DataReaderListenerImpl_Aux2Strings::on_liveliness_changed(
 
 
 void
-DataReaderListenerImpl_Aux2Strings::on_subscription_matched(
+DataReaderListenerImpl_V2XMessage::on_subscription_matched(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SubscriptionMatchedStatus& /*status*/)
 {
 }
 
 void
-DataReaderListenerImpl_Aux2Strings::on_sample_lost(
+DataReaderListenerImpl_V2XMessage::on_sample_lost(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SampleLostStatus& /*status*/)
 {
