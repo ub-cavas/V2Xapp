@@ -24,6 +24,7 @@ using std::string;
 
 Mri::Aux2StringsDataWriter_var  writer_global_aux2strings;
 Mri::V2XMessageDataWriter_var  writer_global_v2xmessage;
+Mri::VehDataDataWriter_var writer_global_vehdata;
 
 int main(int argc, char* argv[]) {
 

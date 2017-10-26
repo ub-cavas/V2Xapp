@@ -1,29 +1,29 @@
-#include "DataReader_V2XMessage.h"
-#include "DataReaderListenerImpl_V2XMessage.h"
+#include "DataReader_VehData.h"
+#include "DataReaderListenerImpl_VehData.h"
 #include <dds/DCPS/Marked_Default_Qos.h>
 
 
 
 
-DataReader_V2XMessage::DataReader_V2XMessage(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name)
+DataReader_VehData::DataReader_VehData(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name)
 {
 	this->participant = m_participant;
 	this->subscriber = subscriber;
 	this->topic = createTopic(topic_name);
 
 	// Create Listener
-	DataReaderListenerImpl_V2XMessage* listener_impl_V2XMessage = new DataReaderListenerImpl_V2XMessage;
-	DDS::DataReaderListener_var m_listener(listener_impl_V2XMessage);
+	DataReaderListenerImpl_VehData* listener_impl_VehData = new DataReaderListenerImpl_VehData;
+	DDS::DataReaderListener_var m_listener(listener_impl_VehData);
 	this->reader = createDataReader(subscriber, topic, m_listener);
 }
 
 
-DataReader_V2XMessage::~DataReader_V2XMessage()
+DataReader_VehData::~DataReader_VehData()
 {
 }
 
 DDS::Topic_var
-DataReader_V2XMessage::createTopic(const char * topic_name)
+DataReader_VehData::createTopic(const char * topic_name)
 {
 	// Register TypeSupport 
 	Mri::V2XMessageTypeSupport_var  ts =
@@ -52,7 +52,7 @@ DataReader_V2XMessage::createTopic(const char * topic_name)
 
 
 DDS::DataReader_var
-DataReader_V2XMessage::createDataReader(
+DataReader_VehData::createDataReader(
 	DDS::Subscriber_var subscriber,
 	DDS::Topic_var topic,
 	DDS::DataReaderListener_var listener)

@@ -288,14 +288,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp" />
+    <ClCompile Include="DataReaderListenerImpl_VehData.cpp" />
     <ClCompile Include="DataReader_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="DataReaderListenerImpl_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="DataReader_V2XMessage.cpp" />
+    <ClCompile Include="DataReader_VehData.cpp" />
     <ClCompile Include="DataWriter_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="DataWriter_V2XMessage.cpp" />
+    <ClCompile Include="DataWriter_VehData.cpp" />
     <ClCompile Include="ParticipantClass.cpp">
     </ClCompile>
     <ClCompile Include="PublisherClass.cpp">
@@ -310,10 +313,13 @@
   <ItemGroup>
     <ClInclude Include="DataReaderListenerImpl_Aux2Strings.h" />
     <ClInclude Include="DataReaderListenerImpl_V2XMessage.h" />
+    <ClInclude Include="DataReaderListenerImpl_VehData.h" />
     <ClInclude Include="DataReader_Aux2Strings.h" />
     <ClInclude Include="DataReader_V2XMessage.h" />
+    <ClInclude Include="DataReader_VehData.h" />
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="DataWriter_V2XMessage.h" />
+    <ClInclude Include="DataWriter_VehData.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />
     <ClInclude Include="SubscriberClass.h" />

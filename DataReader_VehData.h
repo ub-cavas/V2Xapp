@@ -8,15 +8,15 @@
 #include <dds/DCPS/Service_Participant.h>
 #include <string>
 
-class DataReader_V2XMessage
+class DataReader_VehData
 {
 public:
 	
 
 	
-	DataReader_V2XMessage(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name);
+	DataReader_VehData(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name);
 
-	~DataReader_V2XMessage();
+	~DataReader_VehData();
 
 	
 

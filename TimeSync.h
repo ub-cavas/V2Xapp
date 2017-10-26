@@ -33,6 +33,8 @@ const long SERVER_ID = 1;
 
 extern Mri::Aux2StringsDataWriter_var  writer_global_aux2strings;
 extern Mri::V2XMessageDataWriter_var  writer_global_v2xmessage;
+extern Mri::VehDataDataWriter_var  writer_global_vehdata;
+
 
 
 const std::string TAG_TIME_SYNC = "timesync";
