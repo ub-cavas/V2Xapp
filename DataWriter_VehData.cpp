@@ -22,8 +22,8 @@ DataWriter_VehData::DataWriter_VehData(DDS::DomainParticipant_var participant, D
 	this->publisher = publisher;
 	this->topic = createTopic(topic_name);
 	this->writer = createDataWriter();
-	this->msg_writer = Mri::V2XMessageDataWriter::_narrow(writer.in());  
-	writer_global_v2xmessage = msg_writer;
+	this->msg_writer = Mri::VehDataDataWriter::_narrow(writer.in());  
+	writer_global_vehdata = msg_writer;
 	waitForSubscriber();
 	
 }
@@ -73,7 +73,7 @@ void DataWriter_VehData::waitForSubscriber() {
 
 
 
-void DataWriter_VehData::sendMessage(const Mri::V2XMessage& message) {
+void DataWriter_VehData::sendMessage(const Mri::VehData& message) {
 	
 	int success = msg_writer->write(message, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {

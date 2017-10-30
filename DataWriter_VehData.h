@@ -18,9 +18,9 @@ public:
 
 
 	void waitForSubscriber();
-	void sendMessage(const Mri::V2XMessage & message);
+	void sendMessage(const Mri::VehData & message);
 
-	Mri::V2XMessageDataWriter_var msg_writer;
+	Mri::VehDataDataWriter_var msg_writer;
 
 
 private:
