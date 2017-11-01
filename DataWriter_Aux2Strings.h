@@ -10,7 +10,8 @@
 class DataWriter_Aux2Strings
 {
 public:
-	DataWriter_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher);
+
+	DataWriter_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher, const char * topic_name);
 
 	~DataWriter_Aux2Strings();
 
@@ -22,7 +23,8 @@ public:
 
 private:
 
-	DDS::Topic_var createTopic();
+	
+	DDS::Topic_var createTopic(const char * topic_name);
 	DDS::DataWriter_var createDataWriter();
 	
 	

@@ -13,7 +13,7 @@ class DataReader_Aux2Strings
 public:
 	
 
-	DataReader_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Subscriber_var subscriber);
+	DataReader_Aux2Strings(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name);
 
 	~DataReader_Aux2Strings();
 
@@ -22,7 +22,7 @@ public:
 
 private:
 
-	DDS::Topic_var createTopic();
+	DDS::Topic_var createTopic(const char * topic_name);
 	DDS::DataReader_var createDataReader(DDS::Subscriber_var subscriber, DDS::Topic_var topic, DDS::DataReaderListener_var listener);
 	
 	

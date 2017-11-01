@@ -5,11 +5,11 @@
 
 
 
-DataReader_Aux2Strings::DataReader_Aux2Strings(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber)
+DataReader_Aux2Strings::DataReader_Aux2Strings(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name)
 {
 	this->participant = m_participant;
 	this->subscriber = subscriber;
-	this->topic = createTopic();
+	this->topic = createTopic(topic_name);
 
 	// Create Listener
 	DataReaderListenerImpl_Aux2Strings* listener_impl = new DataReaderListenerImpl_Aux2Strings;
@@ -23,7 +23,7 @@ DataReader_Aux2Strings::~DataReader_Aux2Strings()
 }
 
 DDS::Topic_var
-DataReader_Aux2Strings::createTopic()
+DataReader_Aux2Strings::createTopic(const char * topic_name)
 {
 	// Register TypeSupport 
 	Mri::Aux2StringsTypeSupport_var  ts =
@@ -36,7 +36,7 @@ DataReader_Aux2Strings::createTopic()
 	// Create Topic (Mri_Control)
 	CORBA::String_var type_name = ts->get_type_name();
 	DDS::Topic_var topic =
-		participant->create_topic("Mri_Control",
+		participant->create_topic(topic_name,
 			type_name,
 			TOPIC_QOS_DEFAULT,
 			DDS::TopicListener::_nil(),

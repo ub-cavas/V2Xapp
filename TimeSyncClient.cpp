@@ -151,8 +151,8 @@ bool ParseAux2Strings(Mri::Aux2Strings aux_message)
 
 void TimeSynchronization(DDS::DomainParticipant_var m_participant,DDS::Subscriber_var m_subscriber, DDS::Publisher_var m_publisher) {
 	
-	DataReader_Aux2Strings reader(m_participant, m_subscriber);
-	DataWriter_Aux2Strings sender(m_participant, m_publisher);
+	DataReader_Aux2Strings reader(m_participant, m_subscriber, "Mri_Control");
+	DataWriter_Aux2Strings sender(m_participant, m_publisher, "Mri_Control");
 
 	//we have to repeat SynchrinizeTime. It seems it loses a few packets at the very beginning !
 	std::cout << "Time synchronization..."  << std::endl;

@@ -16,11 +16,11 @@ using std::string;
 
 
 
-DataWriter_Aux2Strings::DataWriter_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher)
+DataWriter_Aux2Strings::DataWriter_Aux2Strings(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher, const char * topic_name)
 {
 	this->participant = participant;
 	this->publisher = publisher;
-	this->topic = createTopic();
+	this->topic = createTopic(topic_name);
 	this->writer = createDataWriter();
 	this->msg_writer = Mri::Aux2StringsDataWriter::_narrow(writer.in());
 	writer_global_aux2strings = msg_writer;
@@ -84,7 +84,7 @@ void DataWriter_Aux2Strings::sendMessage(const Mri::Aux2Strings& message) {
 
 
 DDS::Topic_var
-DataWriter_Aux2Strings::createTopic()
+DataWriter_Aux2Strings::createTopic(const char * topic_name)
 {
 	// Register TypeSupport (Messenger::Message)
 	Mri::Aux2StringsTypeSupport_var  ts =
@@ -97,7 +97,7 @@ DataWriter_Aux2Strings::createTopic()
 	// Create Topic (Mri_Control)
 	CORBA::String_var type_name = ts->get_type_name();
 	DDS::Topic_var topic =
-		participant->create_topic("Mri_Control",
+		participant->create_topic(topic_name,
 			type_name,
 			TOPIC_QOS_DEFAULT,
 			DDS::TopicListener::_nil(),
