@@ -26,8 +26,8 @@ DDS::Topic_var
 DataReader_VehData::createTopic(const char * topic_name)
 {
 	// Register TypeSupport 
-	Mri::V2XMessageTypeSupport_var  ts =
-		new Mri::V2XMessageTypeSupportImpl;
+	Mri::VehDataTypeSupport_var  ts =
+		new Mri::VehDataTypeSupportImpl;
 
 	if (ts->register_type(participant, "") != DDS::RETCODE_OK) {
 		throw std::string("failed to register type support");

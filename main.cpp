@@ -47,32 +47,32 @@ int main(int argc, char* argv[]) {
 	TimeSynchronization(participant.m_participant, subscriber.m_subscriber, publisher.m_publisher);
 
 	
-	//create reader to receive V2X message  Mri_V2XfromNS3  Mri_V2XtoNS3
-	DataReader_V2XMessage reader_v2xmessage(participant.m_participant,subscriber.m_subscriber,"Mri_V2XfromNS3");
-	DataWriter_V2XMessage writer_v2xMessage(participant.m_participant, publisher.m_publisher,"Mri_V2XtoNS3");
+	////create reader to receive V2X message  Mri_V2XfromNS3  Mri_V2XtoNS3
+	//DataReader_V2XMessage reader_v2xmessage(participant.m_participant,subscriber.m_subscriber,"Mri_V2XfromNS3");
+	//DataWriter_V2XMessage writer_v2xMessage(participant.m_participant, publisher.m_publisher,"Mri_V2XtoNS3");
 
-	//// topics:	TrafficVeh SubjectCar
-	//DataReader_VehData reader_vehdata(participant.m_participant, subscriber.m_subscriber, "SubjectCar");
-	//DataWriter_VehData writer_vehdata(participant.m_participant, publisher.m_publisher, "TrafficVeh");
+	// topics:	TrafficVeh SubjectCar
+	DataReader_VehData reader_vehdata(participant.m_participant, subscriber.m_subscriber, "Mri_SubjectCar");
+	DataWriter_VehData writer_vehdata(participant.m_participant, publisher.m_publisher, "Mri_TrafficVeh");
 
 	
 
 
 
-	//Mri::VehData veh_message;
-	//for (size_t i = 0; i < 1156530; i++)
-	//{
-	//	veh_message.vehicle_id = 33;
-	//	veh_message.position_x = 1727.172;
-	//	veh_message.position_y = -3450.01;
-	//	veh_message.timestamp = GetTimestamp();
+	Mri::VehData veh_message;
+	for (size_t i = 0; i < 1156530; i++)
+	{
+		veh_message.vehicle_id = 33;
+		veh_message.position_x = 1727.172;
+		veh_message.position_y = -3450.01;
+		veh_message.timestamp = GetTimestamp();
+		writer_vehdata.sendMessage(veh_message);
+		Sleep(350);	
+	}
 
-	//	Sleep(350);	
-	//}
 
 
-
-	Mri::V2XMessage v2x_message;
+	/*Mri::V2XMessage v2x_message;
 	for (size_t i = 0; i < 1156530; i++)
 	{
 		v2x_message.sender_id = THIS_APP_ID;
@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
 		v2x_message.message = "X=12.23;Y=-1636.34";
 		writer_v2xMessage.sendMessage(v2x_message);
 		Sleep(50);
-	}
+	}*/
 
 
 
