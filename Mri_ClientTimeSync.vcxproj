@@ -19,10 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Mri_ClientTimeSync</ProjectName>
+    <ProjectName>Recorder</ProjectName>
     <ProjectGuid>{F45EEE7F-FECA-1BAD-6A4B-8A630000002E}</ProjectGuid>
     <RootNamespace>Mri_ClientTimeSync</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -287,6 +288,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Csv.cpp" />
     <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp" />
     <ClCompile Include="DataReaderListenerImpl_VehData.cpp" />
     <ClCompile Include="DataReader_Aux2Strings.cpp">
@@ -311,6 +313,7 @@
     <ClCompile Include="TimeSyncServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Csv.h" />
     <ClInclude Include="DataReaderListenerImpl_Aux2Strings.h" />
     <ClInclude Include="DataReaderListenerImpl_V2XMessage.h" />
     <ClInclude Include="DataReaderListenerImpl_VehData.h" />
@@ -320,6 +323,7 @@
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="DataWriter_V2XMessage.h" />
     <ClInclude Include="DataWriter_VehData.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />
     <ClInclude Include="SubscriberClass.h" />

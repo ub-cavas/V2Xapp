@@ -29,8 +29,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_MRITYPESUPPORTS_34VHB1_CPP_
-#define _TAO_IDL_MRITYPESUPPORTS_34VHB1_CPP_
+#ifndef _TAO_IDL_MRITYPESUPPORTS_BMI4SS_CPP_
+#define _TAO_IDL_MRITYPESUPPORTS_BMI4SS_CPP_
 
 
 #include "MriTypeSupportS.h"

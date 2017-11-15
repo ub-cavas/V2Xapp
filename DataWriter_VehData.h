@@ -14,6 +14,8 @@ public:
 
 	DataWriter_VehData(DDS::DomainParticipant_var participant, DDS::Publisher_var publisher, const char * topic_name);
 
+	//DataWriter_VehData();
+
 	~DataWriter_VehData();
 
 
@@ -38,6 +40,8 @@ private:
 	DDS::Topic_var topic;
 	DDS::Publisher_var publisher;
 	DDS::DataWriter_var writer;
+
+	std::string topic_name;
 
 
 };

@@ -20,14 +20,19 @@ DataWriter_VehData::DataWriter_VehData(DDS::DomainParticipant_var participant, D
 {
 	this->participant = participant;
 	this->publisher = publisher;
+	this->topic_name = topic_name;
 	this->topic = createTopic(topic_name);
 	this->writer = createDataWriter();
 	this->msg_writer = Mri::VehDataDataWriter::_narrow(writer.in());  
 	writer_global_vehdata = msg_writer;
-	waitForSubscriber();
+	//waitForSubscriber();
 	
 }
 
+
+//DataWriter_VehData::DataWriter_VehData() {
+//
+//}
 
 DataWriter_VehData::~DataWriter_VehData()
 {
@@ -114,10 +119,27 @@ DataWriter_VehData::createTopic(const char * topic_name)
 DDS::DataWriter_var
 DataWriter_VehData::createDataWriter()
 {
+	
+	DDS::DataWriterQos dw_qos;
+	publisher->get_default_datawriter_qos(dw_qos);
+	dw_qos.history.kind = DDS::KEEP_LAST_HISTORY_QOS;
+	dw_qos.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
+	dw_qos.reliability.max_blocking_time.sec = 10;
+	dw_qos.reliability.max_blocking_time.nanosec = 0;
+	dw_qos.resource_limits.max_samples_per_instance = 100;
+	
+	
 	// Create DataWriter
-	DDS::DataWriter_var writer =
+	/*DDS::DataWriter_var writer =
 		publisher->create_datawriter(topic,
 			DATAWRITER_QOS_DEFAULT,
+			DDS::DataWriterListener::_nil(),
+			OpenDDS::DCPS::DEFAULT_STATUS_MASK);*/
+
+
+	DDS::DataWriter_var writer =
+		publisher->create_datawriter(topic,
+			dw_qos,
 			DDS::DataWriterListener::_nil(),
 			OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 
@@ -125,6 +147,6 @@ DataWriter_VehData::createDataWriter()
 	if (!writer) {
 		throw std::string("failed to create data writer");
 	}
-
+	cout << "Data writer created. Topic: " << topic_name << endl;
 	return writer;
 }

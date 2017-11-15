@@ -47,15 +47,16 @@ DataReaderListenerImpl_VehData::on_data_available(DDS::DataReader_ptr reader)
 	DDS::ReturnCode_t error = reader_i->take_next_sample(veh_message, info);
 
 	if (error == DDS::RETCODE_OK) {
-		cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
-		cout << "SampleInfo.instance_state = " << info.instance_state << endl;
+		//cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
+		//cout << "SampleInfo.instance_state = " << info.instance_state << endl;
 
 		if (info.valid_data) {
 			//ParseAux2StringsServer(aux_message);
 
-			cout << "Veh vehicle_id  = " << veh_message.vehicle_id << endl
-				<< "     position_x  = " << veh_message.position_x << endl
-				<< "      timestamp  =" << veh_message.timestamp << endl;
+			cout << "Veh vehicle_id  = " << veh_message.vehicle_id << "      timestamp  =" << veh_message.timestamp << endl;
+				/*<< "     position_x  = " << veh_message.position_x << endl
+				<< "      timestamp  =" << veh_message.timestamp << endl;*/
+				
 				//<< "         str1       = " << aux_message.str1 << std::endl
 				//<< "         str2       = " << aux_message.str2 << std::endl
 				//<< "         tag        = " << aux_message.tag << std::endl;

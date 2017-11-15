@@ -64,6 +64,9 @@
     <ClCompile Include="DataWriter_VehData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Csv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ParticipantClass.h">
@@ -103,6 +106,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataWriter_VehData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Csv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
