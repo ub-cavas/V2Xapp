@@ -15,6 +15,8 @@
 #include <iostream>
 
 #include"TimeSync.h"	//Parse Aux message
+#include "Csv.h"
+#include "main.h"
 
 
 
@@ -24,6 +26,13 @@ using std::cout;
 using std::endl;
 using std::string;
 
+extern std::vector<std::vector<std::string>> buffer;
+extern std::string fileName;
+extern int fileName_index;
+extern int index_buffer;
+extern int full_buffer_count;
+extern long sample_count_buffer;
+extern long sample_count_total;
 
 
 
@@ -51,9 +60,36 @@ DataReaderListenerImpl_VehData::on_data_available(DDS::DataReader_ptr reader)
 		//cout << "SampleInfo.instance_state = " << info.instance_state << endl;
 
 		if (info.valid_data) {
-			//ParseAux2StringsServer(aux_message);
 
-			cout << "Veh vehicle_id  = " << veh_message.vehicle_id << "      timestamp  =" << veh_message.timestamp << endl;
+			
+			
+			//buffor.push_back(z);
+
+
+			if (sample_count_total >= full_buffer_count)
+			{
+				
+				//cout <<"Data Reader Impl. Sample total: " <<sample_count_total << " full buff: " << full_buffer_count << endl;
+				switchBuffer();
+			}
+			else
+			{
+				buffer[index_buffer][sample_count_buffer] = csvConvertVehDataToString(veh_message);
+				sample_count_buffer++;
+				sample_count_total++;
+
+			}
+
+
+
+
+
+
+
+
+
+			//cout << csvConvertVehDataToString(veh_message);
+
 				/*<< "     position_x  = " << veh_message.position_x << endl
 				<< "      timestamp  =" << veh_message.timestamp << endl;*/
 				
@@ -124,17 +160,20 @@ DataReaderListenerImpl_VehData::on_liveliness_changed(
   DDS::DataReader_ptr /*reader*/,
   const DDS::LivelinessChangedStatus& /*status*/)
 {
+	//cout << "END OF RECORDING" << endl;
 }
 
 
 
 void
 DataReaderListenerImpl_VehData::on_subscription_matched(
-  DDS::DataReader_ptr /*reader*/,
-  const DDS::SubscriptionMatchedStatus& /*status*/)
+	DDS::DataReader_ptr /*reader*/,
+	const DDS::SubscriptionMatchedStatus& /*status*/)
 {
+	cout << "******************       START RECORDING       **************************" << endl;
+	cout << "******************                             **************************" << endl;
+	cout << "******************      Press 'q' to finish    **************************" << endl << endl;
 }
-
 void
 DataReaderListenerImpl_VehData::on_sample_lost(
   DDS::DataReader_ptr /*reader*/,

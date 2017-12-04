@@ -5,7 +5,7 @@
 #include "DataReader_VehData.h"
 
 
-#define BUFFER_SIZE 1000
+#define BUFFER_SIZE 10000
 
 
 std::string csvConvertVehDataToString(Mri::VehData _veh);

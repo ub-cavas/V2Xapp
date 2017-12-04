@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Recorder</ProjectName>
+    <ProjectName>Ns3</ProjectName>
     <ProjectGuid>{F45EEE7F-FECA-1BAD-6A4B-8A630000002E}</ProjectGuid>
     <RootNamespace>Mri_ClientTimeSync</RootNamespace>
     <Keyword>Win32Proj</Keyword>
@@ -123,7 +123,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(DDS_ROOT);$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\boost_1_64_0;$(DDS_ROOT);$(ACE_ROOT);$(TAO_ROOT);..\..\..;$(TAO_ROOT)\orbsvcs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -142,7 +142,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;OpenDDS_InfoRepoDiscoveryd.lib;OpenDDS_Tcpd.lib;TAO_Svc_Utilsd.lib;mriCommond.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)clientTimeSync.exe</OutputFile>
-      <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\lib\VS2010\$(Platform);.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\clientTimeSync_exe.pdb</ProgramDatabaseFile>
     </Link>
     <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.

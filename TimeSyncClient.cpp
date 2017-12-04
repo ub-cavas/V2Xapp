@@ -54,12 +54,12 @@ void AddNextDelay(Mri::Aux2Strings auxMessage, long timestampNow) {
 		//synchronization
 		long average_delay = std::lround(delaySum / 10);		// from 5 samples, then take a half delay time (1 way) 
 		long timestamp_perf = atol(auxMessage.str2) + average_delay;
-		std::cout << "Average delay: " << average_delay << std::endl;
-		std::cout << "Previous timestamp: " << GetTimestamp() << "  Current timestamp: " << timestamp_perf << std::endl;
+		//std::cout << "Average delay: " << average_delay << std::endl;
+		std::cout << "Average delay: " << average_delay << endl<< "Previous timestamp: " << GetTimestamp() <<endl << "Current timestamp: " << timestamp_perf << std::endl;
 
 		SetTimestamp(timestamp_perf);
 
-		std::cout  << "Time synchronized" <<  std::endl << "##############################################" << std::endl << std::endl;
+		std::cout  << "TIMESTAMP SYNCHRONIZED" << "  " << std::endl << std::endl;
 		
 		
 

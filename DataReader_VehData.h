@@ -12,7 +12,7 @@ class DataReader_VehData
 {
 public:
 	
-
+	
 	
 	DataReader_VehData(DDS::DomainParticipant_var m_participant, DDS::Subscriber_var subscriber, const char * topic_name);
 
