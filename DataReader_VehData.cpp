@@ -57,10 +57,20 @@ DataReader_VehData::createDataReader(
 	DDS::Topic_var topic,
 	DDS::DataReaderListener_var listener)
 {
+
+	DDS::DataReaderQos dr_qos;
+	subscriber->get_default_datareader_qos(dr_qos);
+	dr_qos.history.kind = DDS::KEEP_ALL_HISTORY_QOS;
+	dr_qos.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
+	dr_qos.reliability.max_blocking_time.sec = 0;
+	dr_qos.reliability.max_blocking_time.nanosec = 2000;
+	dr_qos.resource_limits.max_samples_per_instance = DDS::LENGTH_UNLIMITED;
+
+
 	// Create DataReader
 	DDS::DataReader_var reader =
 		subscriber->create_datareader(topic,
-			DATAREADER_QOS_DEFAULT,
+			dr_qos,
 			listener,
 			OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 

@@ -155,7 +155,7 @@ void TimeSynchronization(DDS::DomainParticipant_var m_participant,DDS::Subscribe
 	DataWriter_Aux2Strings sender(m_participant, m_publisher, "Mri_Control");
 
 	//we have to repeat SynchrinizeTime. It seems it loses a few packets at the very beginning !
-	std::cout << "Time synchronization..."  << std::endl;
+	std::cout << "Timestamp synchronization..."  << std::endl;
 	SynchronizeTime();
 	Sleep(100);
 	SynchronizeTime();

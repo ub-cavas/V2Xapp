@@ -24,7 +24,7 @@ DataWriter_V2XMessage::DataWriter_V2XMessage(DDS::DomainParticipant_var particip
 	this->writer = createDataWriter();
 	this->msg_writer = Mri::V2XMessageDataWriter::_narrow(writer.in());  
 	writer_global_v2xmessage = msg_writer;
-	waitForSubscriber();
+	//waitForSubscriber();
 	
 }
 

@@ -22,15 +22,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParticipantClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PublisherClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SubscriberClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DataReader_Aux2Strings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -41,9 +32,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimeSyncClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TimeSyncServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DataReader_V2XMessage.cpp">
@@ -64,20 +52,11 @@
     <ClCompile Include="DataWriter_VehData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Csv.cpp">
+    <ClCompile Include="OpenDDSThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ParticipantClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PublisherClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SubscriberClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TimeSync.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -108,10 +87,10 @@
     <ClInclude Include="DataWriter_VehData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Csv.h">
+    <ClInclude Include="OpenDDSThread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
+    <ClInclude Include="QueueTs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

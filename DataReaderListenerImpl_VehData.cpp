@@ -12,13 +12,9 @@
 #include "MriTypeSupportC.h"
 #include "MriTypeSupportImpl.h"
 
-#include <iostream>
-
-#include"TimeSync.h"	//Parse Aux message
-#include "Csv.h"
-#include "main.h"
-
-
+#include <iostream>	//cout, endl
+//#include <boost/lockfree/queue.hpp>	
+#include "QueueTs.h"
 
 
 using std::cerr;
@@ -26,14 +22,9 @@ using std::cout;
 using std::endl;
 using std::string;
 
-extern std::vector<std::vector<std::string>> buffer;
-extern std::string fileName;
-extern int fileName_index;
-extern int index_buffer;
-extern int full_buffer_count;
-extern long sample_count_buffer;
-extern long sample_count_total;
 
+//extern boost::lockfree::queue<Mri::VehData> vehdata_queue;
+extern QueueTs<Mri::VehData> vehdata_queue;
 
 
 void
@@ -61,25 +52,13 @@ DataReaderListenerImpl_VehData::on_data_available(DDS::DataReader_ptr reader)
 
 		if (info.valid_data) {
 
-			
+		
 			
 			//buffor.push_back(z);
 
-
-			if (sample_count_total >= full_buffer_count)
-			{
-				
-				//cout <<"Data Reader Impl. Sample total: " <<sample_count_total << " full buff: " << full_buffer_count << endl;
-				switchBuffer();
-			}
-			else
-			{
-				buffer[index_buffer][sample_count_buffer] = csvConvertVehDataToString(veh_message);
-				sample_count_buffer++;
-				sample_count_total++;
-
-			}
-
+			//vehdata_queue.push(veh_message);
+			
+			vehdata_queue.push(veh_message);
 
 
 
@@ -170,7 +149,7 @@ DataReaderListenerImpl_VehData::on_subscription_matched(
 	DDS::DataReader_ptr /*reader*/,
 	const DDS::SubscriptionMatchedStatus& /*status*/)
 {
-	cout << "******************       START RECORDING       **************************" << endl;
+	cout << "******************     Subscriber connected    **************************" << endl;
 	cout << "******************                             **************************" << endl;
 	cout << "******************      Press 'q' to finish    **************************" << endl << endl;
 }

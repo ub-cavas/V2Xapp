@@ -288,7 +288,6 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Csv.cpp" />
     <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp" />
     <ClCompile Include="DataReaderListenerImpl_VehData.cpp" />
     <ClCompile Include="DataReader_Aux2Strings.cpp">
@@ -301,19 +300,13 @@
     </ClCompile>
     <ClCompile Include="DataWriter_V2XMessage.cpp" />
     <ClCompile Include="DataWriter_VehData.cpp" />
-    <ClCompile Include="ParticipantClass.cpp">
-    </ClCompile>
-    <ClCompile Include="PublisherClass.cpp">
-    </ClCompile>
-    <ClCompile Include="SubscriberClass.cpp">
-    </ClCompile>
     <ClCompile Include="main.cpp">
     </ClCompile>
+    <ClCompile Include="OpenDDSThread.cpp" />
     <ClCompile Include="TimeSyncClient.cpp" />
-    <ClCompile Include="TimeSyncServer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Csv.h" />
+    <ClInclude Include="QueueTs.h" />
     <ClInclude Include="DataReaderListenerImpl_Aux2Strings.h" />
     <ClInclude Include="DataReaderListenerImpl_V2XMessage.h" />
     <ClInclude Include="DataReaderListenerImpl_VehData.h" />
@@ -323,10 +316,7 @@
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="DataWriter_V2XMessage.h" />
     <ClInclude Include="DataWriter_VehData.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="ParticipantClass.h" />
-    <ClInclude Include="PublisherClass.h" />
-    <ClInclude Include="SubscriberClass.h" />
+    <ClInclude Include="OpenDDSThread.h" />
     <ClInclude Include="TimeSync.h" />
   </ItemGroup>
   <ItemGroup>

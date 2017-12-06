@@ -24,7 +24,7 @@ DataWriter_VehData::DataWriter_VehData(DDS::DomainParticipant_var participant, D
 	this->topic = createTopic(topic_name);
 	this->writer = createDataWriter();
 	this->msg_writer = Mri::VehDataDataWriter::_narrow(writer.in());  
-	writer_global_vehdata = msg_writer;
+	//writer_global_vehdata = msg_writer;
 	//waitForSubscriber();
 	
 }
