@@ -16,9 +16,6 @@ void SetTimestamp(long timestamp_perfect);
 bool SendSyncMessage();
 
 
-bool SendTimeSyncMessage(Mri::Aux2Strings auxMessage); //timesync server
-
-bool ParseAux2StringsServer(Mri::Aux2Strings aux_message);
 
 
 bool SynchronizeTime();

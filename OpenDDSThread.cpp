@@ -1,22 +1,25 @@
-#include "MriTypeSupportImpl.h"
+
 #include <dds/DCPS/Marked_Default_Qos.h>
 #include <dds/DCPS/Service_Participant.h>
 
-#include "TimeSync.h"
 #include <string> 
 #include <thread>
 #include <iostream> //cout
-#include "OpenDDSThread.h"
+#include <ctime> //time format
+#include <conio.h> //key press
+
+
+
+#include "MriTypeSupportImpl.h"
 #include "DataWriter_Aux2Strings.h"
 #include "DataReader_Aux2Strings.h"
 #include "DataReader_V2XMessage.h"
 #include "DataWriter_V2XMessage.h"
 #include "DataReader_VehData.h"
-//#include <boost/lockfree/queue.hpp>	
-#include "QueueTs.h"
 
-#include <ctime> //time format
-#include <conio.h> //key press
+#include "QueueTs.h"
+#include "TimeSync.h"
+#include "OpenDDSThread.h"
 
 using std::cerr;
 using std::cout;
@@ -30,10 +33,8 @@ Mri::V2XMessageDataWriter_var  writer_global_v2xmessage;
 //boost::lockfree::queue<Mri::VehData> vehdata_queue{ 1000 };		//size = 1000
 
 QueueTs<Mri::VehData> vehdata_queue;
+bool finish_application;
 
-
-
-extern bool finish_application;
 
 bool getInput(char *c)
 {
@@ -45,6 +46,18 @@ bool getInput(char *c)
 	return false; // No keys were pressed
 }
 //void OpenDDSThread(int argc, char* argv[])
+
+
+void startOpenDDSThread(int argc, char* argv[]) {
+	// start thread OpenDDS
+
+	finish_application = false;
+	std::thread threadOpenDDS(OpenDDSThread, argc, argv);
+	//close thread
+	threadOpenDDS.join();
+}
+
+
 void OpenDDSThread(int argc, char* argv[]){
 	// start thread
 	
@@ -240,13 +253,13 @@ void OpenDDSThread(int argc, char* argv[]){
 		dpf->delete_participant(participant);
 
 		TheServiceParticipant->shutdown();
-
+		
 		threadTimestamp.detach();
 		finish_application = true; //it breaks waiting "while .. " and close app 
 		
 	}
 	catch (const CORBA::Exception& e) {
-		e._tao_print_exception("Exception caught in main():");
+		e._tao_print_exception("Exception caught in OpenDDSThread:");
 		
 	}
 
