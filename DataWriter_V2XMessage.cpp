@@ -24,7 +24,7 @@ DataWriter_V2XMessage::DataWriter_V2XMessage(DDS::DomainParticipant_var particip
 	this->writer = createDataWriter();
 	this->msg_writer = Mri::V2XMessageDataWriter::_narrow(writer.in());  
 	writer_global_v2xmessage = msg_writer;
-	//waitForSubscriber();
+	waitForSubscriber();
 	
 }
 
@@ -45,10 +45,11 @@ void DataWriter_V2XMessage::waitForSubscriber() {
 	while (true) {
 		DDS::PublicationMatchedStatus matches;
 		if (writer->get_publication_matched_status(matches) != ::DDS::RETCODE_OK) {
-			ACE_ERROR((LM_ERROR,
+			/*ACE_ERROR((LM_ERROR,
 				ACE_TEXT("ERROR: %N:%l: main() -")
 				ACE_TEXT(" get_publication_matched_status failed!\n")),
-				-1);
+				-1);*/
+			throw std::string("ERROR: DataWriter V2XMessage get publication matched status failed");
 		}
 
 		if (matches.current_count >= 1) {
@@ -58,10 +59,11 @@ void DataWriter_V2XMessage::waitForSubscriber() {
 		DDS::ConditionSeq conditions;
 		DDS::Duration_t timeout = { 60, 0 };
 		if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
-			ACE_ERROR((LM_ERROR,
+			/*ACE_ERROR((LM_ERROR,
 				ACE_TEXT("ERROR: %N:%l: main() -")
 				ACE_TEXT(" wait failed!\n")),
-				-1);
+				-1);*/
+			throw std::string("ERROR: DataWriter V2XMessage waitForSubscriber");
 		}
 	}
 
@@ -77,7 +79,8 @@ void DataWriter_V2XMessage::sendMessage(const Mri::V2XMessage& message) {
 	
 	int success = msg_writer->write(message, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
-		ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: Publisher::sendMessage write returned %d.\n"), success));
+		//ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: Publisher::sendMessage write returned %d.\n"), success));
+		throw std::string("ERROR: DataWriter V2XMessage sendMessage");
 	}
 }
 

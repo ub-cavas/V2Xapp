@@ -29,8 +29,8 @@
 // TAO_IDL - Generated from
 // e:\opendds312\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_MRIS_TW33YJ_CPP_
-#define _TAO_IDL_MRIS_TW33YJ_CPP_
+#ifndef _TAO_IDL_MRIS_6PJKNX_CPP_
+#define _TAO_IDL_MRIS_6PJKNX_CPP_
 
 
 #include "MriS.h"

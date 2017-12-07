@@ -7,6 +7,7 @@
 #include <iostream> //cout
 #include <ctime> //time format
 #include <conio.h> //key press
+#include <map>	//map - list of vehicles
 
 
 
@@ -19,7 +20,7 @@
 
 #include "QueueTs.h"
 #include "TimeSync.h"
-#include "OpenDDSThread.h"
+#include "OpenDDS.h"
 
 using std::cerr;
 using std::cout;
@@ -29,10 +30,10 @@ using std::string;
 
 Mri::Aux2StringsDataWriter_var  writer_global_aux2strings;
 Mri::V2XMessageDataWriter_var  writer_global_v2xmessage;
-
-//boost::lockfree::queue<Mri::VehData> vehdata_queue{ 1000 };		//size = 1000
+long veh_id_to_remove;
 
 QueueTs<Mri::VehData> vehdata_queue;
+std::map<long, Mri::VehData> vehs_map;
 bool finish_application;
 
 
@@ -45,16 +46,83 @@ bool getInput(char *c)
 	}
 	return false; // No keys were pressed
 }
-//void OpenDDSThread(int argc, char* argv[])
+
+void sendV2X(long sender_id, long sender_timestamp, string message) {
+	Mri::V2XMessage v2x;
+	v2x.sender_id = sender_id;
+	v2x.sender_timestamp = sender_timestamp;
+	v2x.message = message.c_str();
+	int success = writer_global_v2xmessage->write(v2x, DDS::HANDLE_NIL);
+	if (success != DDS::RETCODE_OK) {
+		//ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
+		throw std::string("ERROR: SendV2X message failed");
+	}
+	
+}
+
+void vehsMapThread() {
+	
+
+	Mri::VehData _veh;
+	
+	//std::map<long, Mri::VehData> vehs_map;
+	std::map<long, Mri::VehData>::iterator it;
+	
+	veh_id_to_remove = -1; // initial value
+	
+	while (!finish_application)
+	{
+		//wait for something at the queue
+		vehdata_queue.pop(_veh);
+		{
+			it = vehs_map.find(_veh.vehicle_id);
+			if (it != vehs_map.end()) {
+				//there is a car with id = _veh.vehicle_id
 
 
-void startOpenDDSThread(int argc, char* argv[]) {
-	// start thread OpenDDS
+				//check if new data is older than in vehs_map
+				if (_veh.timestamp >  it->second.timestamp)
+				{
+					//update data in vehs_map
+					vehs_map[it->first] = _veh;
+				}
+				else
+				{
+					cout << "OpenDDS data is older than data in vehs_list. Veh_id=" << _veh.vehicle_id
+						<< " timestamp_vehs_list=" << it->second.timestamp
+						<< " timestamp_OpenDDS=" << _veh.timestamp << endl;
+				}
+			}
+			else
+			{
+				//no car with id = _veh.vehicle_id
+				vehs_map.emplace(_veh.vehicle_id, _veh);
 
-	finish_application = false;
-	std::thread threadOpenDDS(OpenDDSThread, argc, argv);
-	//close thread
-	threadOpenDDS.join();
+			}
+
+
+
+			//check if we have to remove a car
+
+			if (veh_id_to_remove!=-1)
+			{
+				it = vehs_map.find(veh_id_to_remove);
+				if (it != vehs_map.end()) 
+				{
+					vehs_map.erase(it);
+					cout << endl << "####################################################################################" << endl;
+					cout << "############  Removed from vehsMap vehicle_id =" << veh_id_to_remove << "     ############" << endl<<endl;
+					veh_id_to_remove = -1; //reset this variable
+				}
+			}
+
+
+
+			//cout << "Timestamp: " << _veh.timestamp << " id=" << _veh.vehicle_id << endl;
+
+			//cout << "Timestamp: " << _veh.timestamp << " size of map=" << vehs_map.size() << endl << endl;
+		}
+	}
 }
 
 
@@ -146,6 +214,37 @@ void OpenDDSThread(int argc, char* argv[]){
 		DataReader_VehData reader_subject_car(participant, subscriber, "Mri_SubjectCar");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 		////VehData DataReaders
 
@@ -229,21 +328,21 @@ void OpenDDSThread(int argc, char* argv[]){
 		//}
 
 
-		Mri::VehData _veh;
+
+
+
+
+
+		
 
 		while (key != 'q')
 		{
 			//Sleep(200);
 			getInput(&key);
 
-			vehdata_queue.pop(_veh);
-			{
-				cout << "Timestamp: " << _veh.timestamp << " id=" << _veh.vehicle_id << endl;
-			}
+			
 
 		}
-
-
 		//close thread
 
 		
@@ -264,11 +363,6 @@ void OpenDDSThread(int argc, char* argv[]){
 	}
 
 
-
-	/*while (true)
-	{
-	Sleep(1000);
-	}*/
 
 
 }

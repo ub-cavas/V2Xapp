@@ -97,7 +97,8 @@ bool SendSyncMessage() {
 
 	int success = writer_global_aux2strings->write(auxMessage, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
-		ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
+		//ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
+		throw std::string("ERROR: SendSyncMessage failed");
 	}
 	//sender.sendMessage(auxMessage);
 

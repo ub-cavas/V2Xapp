@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Ns3</ProjectName>
+    <ProjectName>V2X</ProjectName>
     <ProjectGuid>{F45EEE7F-FECA-1BAD-6A4B-8A630000002E}</ProjectGuid>
     <RootNamespace>Mri_ClientTimeSync</RootNamespace>
     <Keyword>Win32Proj</Keyword>
@@ -302,7 +302,7 @@
     <ClCompile Include="DataWriter_VehData.cpp" />
     <ClCompile Include="main.cpp">
     </ClCompile>
-    <ClCompile Include="OpenDDSThread.cpp" />
+    <ClCompile Include="OpenDDST.cpp" />
     <ClCompile Include="TimeSyncClient.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -316,7 +316,8 @@
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="DataWriter_V2XMessage.h" />
     <ClInclude Include="DataWriter_VehData.h" />
-    <ClInclude Include="OpenDDSThread.h" />
+    <ClInclude Include="OpenDDS.h" />
+    <ClInclude Include="Sleep.h" />
     <ClInclude Include="TimeSync.h" />
   </ItemGroup>
   <ItemGroup>

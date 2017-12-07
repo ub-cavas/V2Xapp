@@ -52,7 +52,7 @@
     <ClCompile Include="DataWriter_VehData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OpenDDSThread.cpp">
+    <ClCompile Include="OpenDDST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,10 +87,13 @@
     <ClInclude Include="DataWriter_VehData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenDDSThread.h">
+    <ClInclude Include="QueueTs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QueueTs.h">
+    <ClInclude Include="OpenDDS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sleep.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
