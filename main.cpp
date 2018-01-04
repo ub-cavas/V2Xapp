@@ -1,6 +1,8 @@
 #include <thread>
+#include <chrono>         // std::chrono::seconds to test this_thread sleep
 
 #include <iostream> //cout
+#include <stdlib.h>     /* srand, rand */
 
 #include <dds/DCPS/Service_Participant.h>	//neccessary to start OpenDDSThreat without error
 #include "OpenDDS.h"	//to start OpenDDSThread
@@ -37,16 +39,38 @@ int main(int argc, char* argv[]) {
 
 	std::map<long, Mri::VehData> vehs_map_copy;
 	
+
+	/* initialize random seed: */
+	srand(time(NULL));
+	
+	int wait_time_random;
+	int map_size;
+	int wait_time_factor;	// more vehs in the map => factor become smaller, time between messages shorter
+	std::string message_text;
+
 	while (!finish_application)
 	{
 		//wait, wait....
-		Sleep(100);
+		//Sleep(100);
+
+		
+
+
 		old_veh_timestamp = GetTimestamp() - 50;	//to find veh data not updated for 50 x 10ms = 500 ms
-		if (vehs_map.size()>0)
+
+		map_size = vehs_map.size();
+
+		if (map_size>0)
 		{
 			vehs_map_copy = vehs_map;
+			wait_time_factor = 400 / map_size;
+
 
 			std::cout << "------------------------------------------------"<< std::endl;
+
+
+
+
 			for (auto& x : vehs_map_copy) {
 				if (x.second.timestamp< old_veh_timestamp)
 				{
@@ -54,13 +78,33 @@ int main(int argc, char* argv[]) {
 					veh_id_to_remove = x.second.vehicle_id;
 
 				}
-				std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
+
+				//send V2X message in random intervals of time
+				//sendV2X
+
+				message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
+				sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
+
+				wait_time_random = rand() % wait_time_factor;
+				Sleep(wait_time_random);
+
+				std::cout << "wait time " << wait_time_random << std::endl;
+
+				//std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
 			}
+			
+			
+			
 			std::cout << std::endl << std::endl;
 		}
 		
 		
 	}
+
+	std::cout << std::endl << "---   CLOSING APPLICATION   ---" << std::endl;
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
 
 	threadOpenDDS.detach();
 	threadVehsMap.detach();

@@ -48,14 +48,23 @@ bool getInput(char *c)
 }
 
 void sendV2X(long sender_id, long sender_timestamp, string message) {
+	
 	Mri::V2XMessage v2x;
+	
 	v2x.sender_id = sender_id;
 	v2x.sender_timestamp = sender_timestamp;
 	v2x.message = message.c_str();
+	v2x.recipient_id = -1;
+	v2x.recipient_timestamp = -1;
+
 	int success = writer_global_v2xmessage->write(v2x, DDS::HANDLE_NIL);
 	if (success != DDS::RETCODE_OK) {
 		//ACE_ERROR((LM_ERROR, ACE_TEXT("(%P|%t) ERROR: TimeSync send message write returned %d.\n"), success));
 		throw std::string("ERROR: SendV2X message failed");
+	}
+	else
+	{
+		cout << "V2X message:" << v2x.message << endl << " sender_id=" << v2x.sender_id << " sender_timestamp=" << v2x.sender_timestamp << endl;
 	}
 	
 }
@@ -144,11 +153,6 @@ void OpenDDSThread(int argc, char* argv[]){
 	try
 	{
 		std::thread threadTimestamp(TimestampThread);
-		//std::cout << "*****************   Timestamp: " << GetTimestamp() << std::endl << std::endl;
-		
-		
-
-
 
 		// Initialize DomainParticipantFactory
  		DDS::DomainParticipantFactory_var dpf =
@@ -215,124 +219,6 @@ void OpenDDSThread(int argc, char* argv[]){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		////VehData DataReaders
-
-		//// Register TypeSupport 
-		//Mri::VehDataTypeSupport_var  ts =
-		//	new Mri::VehDataTypeSupportImpl;
-
-		//if (ts->register_type(participant, "") != DDS::RETCODE_OK) {
-		//	throw std::string("Failed to register VehData type support");
-		//}
-
-
-		//// Reader Mri_TrafficVeh
-
-		//// Create Topic Mri_TrafficVeh
-		//CORBA::String_var type_name = ts->get_type_name();
-		//DDS::Topic_var topic_traffic_vehs =
-		//	participant->create_topic(topic_traffic_vehs_name,
-		//		type_name,
-		//		TOPIC_QOS_DEFAULT,
-		//		DDS::TopicListener::_nil(),
-		//		OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-		//// Check for failure
-		//if (!topic_traffic_vehs) {
-		//	throw std::string("Failed to create topic Mri_TrafficVeh");
-		//}
-
-
-		//// Create DataReader
-		//DDS::DataReaderListener_var listener(new DataReaderListenerImpl_VehData);
-
-
-		//DDS::DataReaderQos dr_qos;
-		//subscriber->get_default_datareader_qos(dr_qos);
-		//dr_qos.history.kind = DDS::KEEP_ALL_HISTORY_QOS;
-		//dr_qos.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
-		//dr_qos.reliability.max_blocking_time.sec = 0;
-		//dr_qos.reliability.max_blocking_time.nanosec = 2000;
-		//dr_qos.resource_limits.max_samples_per_instance = DDS::LENGTH_UNLIMITED;
-
-
-		//DDS::DataReader_var reader_traffic_vehs =
-		//	subscriber->create_datareader(topic_traffic_vehs,
-		//		DATAREADER_QOS_DEFAULT,
-		//		listener,
-		//		OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-		//// Check for failure
-		//if (!reader_traffic_vehs) {
-		//	throw std::string("failed to create data reader traffic_vehs");
-		//}
-
-
-
-
-
-		//// Create Topic "Mri_SubjectCar"
-		////CORBA::String_var type_name = ts->get_type_name();
-		//DDS::Topic_var topic_subject_car =
-		//	participant->create_topic(topic_subject_car_name,
-		//		type_name,	//this is the same type like in topic_traffic_vehs
-		//		TOPIC_QOS_DEFAULT,
-		//		DDS::TopicListener::_nil(),
-		//		OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-		//// Check for failure
-		//if (!topic_subject_car) {
-		//	throw std::string("Failed to create topic Mri_TrafficVeh");
-		//}
-
-		//DDS::DataReader_var reader_subject_car =
-		//	subscriber->create_datareader(topic_subject_car,
-		//		DATAREADER_QOS_DEFAULT,
-		//		listener,
-		//		OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-		//// Check for failure
-		//if (!reader_subject_car) {
-		//	throw std::string("failed to create data reader subject car");
-		//}
-
-
-
-
-
-
-
 		
 
 		while (key != 'q')
@@ -344,17 +230,18 @@ void OpenDDSThread(int argc, char* argv[]){
 
 		}
 		//close thread
-
+		finish_application = true; //it breaks waiting "while .. " and close app 
+		threadTimestamp.detach();
 		
+		Sleep(500);
 
 		// Clean-up!
 		participant->delete_contained_entities();
-		dpf->delete_participant(participant);
+		//dpf->delete_participant(participant);
 
 		TheServiceParticipant->shutdown();
 		
-		threadTimestamp.detach();
-		finish_application = true; //it breaks waiting "while .. " and close app 
+		
 		
 	}
 	catch (const CORBA::Exception& e) {

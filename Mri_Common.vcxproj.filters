@@ -17,13 +17,16 @@
       <UniqueIdentifier>{2990FA4C-FECA-1BAD-6A4B-8A630000002E}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
-    <Filter Include="Typesupport And Idl Files">
+    <Filter Include="Idl And Typesupport Files">
       <UniqueIdentifier>{9E235CA7-FECA-1BAD-6A4B-8A630000002E}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
     <Filter Include="Inline Files">
       <UniqueIdentifier>{763028EF-FECA-1BAD-6A4B-8A630000002E}</UniqueIdentifier>
       <Extensions>i;ipp;inl</Extensions>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{B14BBA74-FECA-1BAD-6A4B-8A630000002E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Mri.idl">
-      <Filter>Typesupport And Idl Files</Filter>
+      <Filter>Idl And Typesupport Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -85,5 +88,10 @@
     <None Include="MriTypeSupportC.inl">
       <Filter>Inline Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="recorder.txt">
+      <Filter>Documentation</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

@@ -37,9 +37,9 @@ Header_Files {
 
 
 
-project(*ClientTimeSync) : dcpsexe, svc_utils {
+project(*v2x) : dcpsexe, svc_utils {
   after += *Common
-  exename   = clientTimeSync
+  exename   = v2x
 
   includes += $(TAO_ROOT)/orbsvcs
   libs += mriCommon

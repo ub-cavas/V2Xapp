@@ -1,10 +1,9 @@
 #pragma once
+#include <string>
 
 bool getInput(char * c);
 
-void sendV2X(long sender_id, long sender_timestamp, string message);
-
-void startOpenDDSThread(int argc, char * argv[]);
+void sendV2X(long sender_id, long sender_timestamp, std::string message);
 
 void vehsMapThread();
 
