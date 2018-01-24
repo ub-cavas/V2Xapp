@@ -163,4 +163,6 @@ void TimeSynchronization(DDS::DomainParticipant_var m_participant,DDS::Subscribe
 
 	//wait 2 sec to finish synchronization process and then dispose reader and sender
 	Sleep(2000);
+
+	cout << "END Timestamp Synchronization" << endl;
 }

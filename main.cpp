@@ -28,6 +28,7 @@ int main(int argc, char* argv[]) {
 
 	std::thread threadOpenDDS(OpenDDSThread, argc, argv);
 	std::thread threadVehsMap(vehsMapThread);
+	std::thread threadV2Xreading(v2xMapThread);
 	//close thread
 
 	
@@ -66,7 +67,7 @@ int main(int argc, char* argv[]) {
 			wait_time_factor = 400 / map_size;
 
 
-			std::cout << "------------------------------------------------"<< std::endl;
+			//std::cout << "------------------------------------------------"<< std::endl;
 
 
 
@@ -83,19 +84,21 @@ int main(int argc, char* argv[]) {
 				//sendV2X
 
 				message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
+				
+				
 				sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
 
 				wait_time_random = rand() % wait_time_factor;
 				Sleep(wait_time_random);
 
-				std::cout << "wait time " << wait_time_random << std::endl;
+				//std::cout << "wait time " << wait_time_random << std::endl;
 
 				//std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
 			}
 			
 			
-			
-			std::cout << std::endl << std::endl;
+			std::cout << "*";
+			//std::cout << std::endl << std::endl;
 		}
 		
 		

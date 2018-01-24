@@ -149,9 +149,9 @@ DataReaderListenerImpl_VehData::on_subscription_matched(
 	DDS::DataReader_ptr /*reader*/,
 	const DDS::SubscriptionMatchedStatus& /*status*/)
 {
-	cout << "******************     Subscriber connected    **************************" << endl;
+	cout << "******************               VehData       **************************" << endl;
 	cout << "******************                             **************************" << endl;
-	cout << "******************      Press 'q' to finish    **************************" << endl << endl;
+	cout << "******************                             **************************" << endl << endl;
 }
 void
 DataReaderListenerImpl_VehData::on_sample_lost(

@@ -15,6 +15,7 @@
 #include <iostream>
 
 #include"TimeSync.h"	//Parse Aux message
+#include "QueueTs.h"
 
 
 
@@ -24,7 +25,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-
+extern QueueTs<Mri::V2XMessage> v2x_queue;
 
 
 void
@@ -47,19 +48,16 @@ DataReaderListenerImpl_V2XMessage::on_data_available(DDS::DataReader_ptr reader)
 	DDS::ReturnCode_t error = reader_i->take_next_sample(v2x_message, info);
 
 	if (error == DDS::RETCODE_OK) {
-		cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
-		cout << "SampleInfo.instance_state = " << info.instance_state << endl;
+		/*cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
+		cout << "SampleInfo.instance_state = " << info.instance_state << endl;*/
 
 		if (info.valid_data) {
-			//ParseAux2StringsServer(aux_message);
 
-			cout << "V2X: senderId  = " << v2x_message.sender_id << endl
+	/*		cout << "V2X: senderId  = " << v2x_message.sender_id << endl
 				<< "     receiverId = " << v2x_message.recipient_id << endl
-				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;
-				//<< "         str1       = " << aux_message.str1 << std::endl
-				//<< "         str2       = " << aux_message.str2 << std::endl
-				//<< "         tag        = " << aux_message.tag << std::endl;
-
+				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;*/
+			
+			v2x_queue.push(v2x_message);
 		}
 
 	}

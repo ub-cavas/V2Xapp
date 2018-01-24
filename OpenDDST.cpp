@@ -35,6 +35,7 @@ long veh_id_to_remove;
 QueueTs<Mri::VehData> vehdata_queue;
 std::map<long, Mri::VehData> vehs_map;
 bool finish_application;
+QueueTs<Mri::V2XMessage> v2x_queue;
 
 
 bool getInput(char *c)
@@ -64,7 +65,7 @@ void sendV2X(long sender_id, long sender_timestamp, string message) {
 	}
 	else
 	{
-		cout << "V2X message:" << v2x.message << endl << " sender_id=" << v2x.sender_id << " sender_timestamp=" << v2x.sender_timestamp << endl;
+		//cout << endl <<"     *****  SEND V2X message:" << v2x.message <<  " sender_id=" << v2x.sender_id << " sender_timestamp=" << v2x.sender_timestamp << endl;
 	}
 	
 }
@@ -134,6 +135,25 @@ void vehsMapThread() {
 	}
 }
 
+
+
+void v2xMapThread() {
+
+
+	Mri::V2XMessage _v2x;
+
+
+	while (!finish_application)
+	{
+		//wait for something at the queue
+		v2x_queue.pop(_v2x);
+		{
+			cout << endl << GetTimestamp()   <<"   V2X: senderId  = " << _v2x.sender_id 
+				<< "     receiverId = " << _v2x.recipient_id 
+				<< "     sender_timestamp=" << _v2x.sender_timestamp << endl; 
+		}
+	}
+}
 
 void OpenDDSThread(int argc, char* argv[]){
 	// start thread
