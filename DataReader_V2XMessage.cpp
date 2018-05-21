@@ -68,6 +68,7 @@ DataReader_V2XMessage::createDataReader(
 	if (!reader) {
 		throw std::string("failed to create data reader");
 	}
+	
 
 	return reader;
 }

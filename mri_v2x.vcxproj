@@ -285,6 +285,7 @@
 -->
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ResourceCompile Include="mri_v2x.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataReaderListenerImpl_Aux2Strings.cpp">
@@ -312,6 +313,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
     </ClCompile>
+    <ClCompile Include="V2xApps.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataReaderListenerImpl_Aux2Strings.h" />
@@ -323,14 +325,17 @@
     <ClInclude Include="DataWriter_Aux2Strings.h" />
     <ClInclude Include="DataWriter_V2XMessage.h" />
     <ClInclude Include="DataWriter_VehData.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="mriCommon_Export.h" />
     <ClInclude Include="OpenDDS.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />
     <ClInclude Include="QueueTs.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Sleep.h" />
     <ClInclude Include="SubscriberClass.h" />
     <ClInclude Include="TimeSync.h" />
+    <ClInclude Include="V2xApps.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mri.mpc">
@@ -349,6 +354,9 @@
   <ItemGroup>
     <None Include="MriC.inl" />
     <None Include="MriTypeSupportC.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Mri.idl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

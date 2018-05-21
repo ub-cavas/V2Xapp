@@ -67,6 +67,9 @@
     <ClCompile Include="DataWriter_VehData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="V2xApps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataReader_Aux2Strings.h">
@@ -120,6 +123,15 @@
     <ClInclude Include="DataWriter_VehData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="V2xApps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="mri.mpc">
@@ -136,5 +148,11 @@
     <None Include="MriTypeSupportC.inl">
       <Filter>Inline Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mri_v2x.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Mri.idl" />
   </ItemGroup>
 </Project>

@@ -11,6 +11,10 @@
 #include "Sleep.h"	// Sleep()
 #include "TimeSync.h"	//Sleep() 
 
+#include "V2xApps.h"
+#include "main.h"
+
+
 
 extern bool finish_application;
 extern std::map<long, Mri::VehData> vehs_map;
@@ -19,6 +23,11 @@ extern long veh_id_to_remove;
 
 //char *argv2[] = { "-DCPSConfigFile","rtps.ini" };
 //-DCPSConfigFile rtps.ini
+
+
+
+
+
 
 int main(int argc, char* argv[]) {
 
@@ -57,13 +66,17 @@ int main(int argc, char* argv[]) {
 		
 
 
-		old_veh_timestamp = GetTimestamp() - 50;	//to find veh data not updated for 50 x 10ms = 500 ms
+		
 
 		map_size = vehs_map.size();
 
 		if (map_size>0)
 		{
 			vehs_map_copy = vehs_map;
+			if (map_size>=400)
+			{
+				map_size = 400;
+			}
 			wait_time_factor = 400 / map_size;
 
 
@@ -73,18 +86,13 @@ int main(int argc, char* argv[]) {
 
 
 			for (auto& x : vehs_map_copy) {
-				if (x.second.timestamp< old_veh_timestamp)
-				{
-					//select this veh_id to removing
-					veh_id_to_remove = x.second.vehicle_id;
-
-				}
+				
 
 				//send V2X message in random intervals of time
 				//sendV2X
 
-				message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
-				
+				//message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
+				message_text = createBSMcoreData(x.second);
 				
 				sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
 
@@ -96,8 +104,27 @@ int main(int argc, char* argv[]) {
 				//std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
 			}
 			
-			
-			std::cout << "*";
+
+			old_veh_timestamp = GetTimestamp() - 50;	//to find veh data not updated for 50 x 10ms = 500 ms
+
+			for (auto& x : vehs_map_copy) {
+				if (x.second.timestamp < old_veh_timestamp)
+				{
+					if (x.second.vehicle_id!=0)
+					{
+						//select this veh_id to removing
+						veh_id_to_remove = x.second.vehicle_id;
+						break;
+					}
+					
+
+				}
+			}
+
+
+
+
+			std::cout << ".";
 			//std::cout << std::endl << std::endl;
 		}
 		
@@ -108,9 +135,10 @@ int main(int argc, char* argv[]) {
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-
-	threadOpenDDS.detach();
+	threadV2Xreading.detach();
 	threadVehsMap.detach();
+	threadOpenDDS.detach();
+	
 
 	return 0;
 }

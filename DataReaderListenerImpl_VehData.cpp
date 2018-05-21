@@ -61,7 +61,7 @@ DataReaderListenerImpl_VehData::on_data_available(DDS::DataReader_ptr reader)
 			vehdata_queue.push(veh_message);
 
 
-
+		
 
 
 

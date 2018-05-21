@@ -21,6 +21,7 @@
 #include "QueueTs.h"
 #include "TimeSync.h"
 #include "OpenDDS.h"
+#include "V2xApps.h"
 
 using std::cerr;
 using std::cout;
@@ -84,7 +85,7 @@ void vehsMapThread() {
 	{
 		//wait for something at the queue
 		vehdata_queue.pop(_veh);
-		{
+		
 			it = vehs_map.find(_veh.vehicle_id);
 			if (it != vehs_map.end()) {
 				//there is a car with id = _veh.vehicle_id
@@ -117,21 +118,20 @@ void vehsMapThread() {
 			if (veh_id_to_remove!=-1)
 			{
 				it = vehs_map.find(veh_id_to_remove);
+
+				veh_id_to_remove = -1; //reset this variable
+
 				if (it != vehs_map.end()) 
 				{
 					vehs_map.erase(it);
-					cout << endl << "####################################################################################" << endl;
-					cout << "############  Removed from vehsMap vehicle_id =" << veh_id_to_remove << "     ############" << endl<<endl;
-					veh_id_to_remove = -1; //reset this variable
+					//cout << endl << "####################################################################################" << endl;
+					cout << endl << "#######  Removed from vehsMap vehicle_id =" << veh_id_to_remove << "   #####" << endl<<endl;
+					
 				}
+				//veh_id_to_remove = -1; //reset this variable
 			}
 
-
-
-			//cout << "Timestamp: " << _veh.timestamp << " id=" << _veh.vehicle_id << endl;
-
-			//cout << "Timestamp: " << _veh.timestamp << " size of map=" << vehs_map.size() << endl << endl;
-		}
+		
 	}
 }
 
@@ -139,18 +139,49 @@ void vehsMapThread() {
 
 void v2xMapThread() {
 
-
+	// thread where app receives v2x messages from NS-3
 	Mri::V2XMessage _v2x;
 
 
 	while (!finish_application)
 	{
+		
+
+		Mri::VehData subjectCar1;
+		Mri::VehData _veh;
+
+		
+		float distance = -1;
+
+
+
+
 		//wait for something at the queue
 		v2x_queue.pop(_v2x);
 		{
-			cout << endl << GetTimestamp()   <<"   V2X: senderId  = " << _v2x.sender_id 
-				<< "     receiverId = " << _v2x.recipient_id 
-				<< "     sender_timestamp=" << _v2x.sender_timestamp << endl; 
+			
+			
+			_veh = readVehDatafromString((string)_v2x.message);
+			subjectCar1 = vehs_map[1];
+			
+			if (subjectCar1.vehicle_id!= _veh.vehicle_id)
+			{
+				distance = doNotPassWarning(subjectCar1.position_x, subjectCar1.position_y, subjectCar1.orient_heading, _veh.position_x, _veh.position_y, _veh.orient_heading);
+
+				if (distance>0 && distance <160)
+				{
+					cout << endl <<" *** WARNING  distance= " << distance << " ***" <<  endl << endl;
+					sendDNPWMessage(distance, 5); // 5 is an app id of OpenDS 1
+				}
+
+				
+
+		/*		cout << endl << GetTimestamp() << "   V2X: senderId  = " << _v2x.sender_id
+					<< "     receiverId = " << _v2x.recipient_id
+					<< "     veh_X=" << _veh.position_x << " y=" << _veh.position_y << endl;*/
+			}
+
+			
 		}
 	}
 }
@@ -227,6 +258,9 @@ void OpenDDSThread(int argc, char* argv[]){
 
 		//create reader to receive V2X message  Mri_V2XfromNS3  Mri_V2XtoNS3
 		DataReader_V2XMessage reader_v2xmessage(participant, subscriber, "Mri_V2XfromNS3");
+
+		//DataReader_V2XMessage reader_v2xmessage(participant, subscriber, "Mri_V2XtoNS3");
+
 		// writer
 		DataWriter_V2XMessage writer_v2xMessage(participant, publisher, "Mri_V2XtoNS3");
 
@@ -253,11 +287,11 @@ void OpenDDSThread(int argc, char* argv[]){
 		finish_application = true; //it breaks waiting "while .. " and close app 
 		threadTimestamp.detach();
 		
-		Sleep(500);
+		Sleep(2500);
 
 		// Clean-up!
 		participant->delete_contained_entities();
-		//dpf->delete_participant(participant);
+		dpf->delete_participant(participant);
 
 		TheServiceParticipant->shutdown();
 		

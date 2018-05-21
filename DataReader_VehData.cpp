@@ -60,7 +60,7 @@ DataReader_VehData::createDataReader(
 
 	DDS::DataReaderQos dr_qos;
 	subscriber->get_default_datareader_qos(dr_qos);
-	dr_qos.history.kind = DDS::KEEP_ALL_HISTORY_QOS;
+	dr_qos.history.kind = DDS::KEEP_LAST_HISTORY_QOS;
 	dr_qos.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
 	dr_qos.reliability.max_blocking_time.sec = 0;
 	dr_qos.reliability.max_blocking_time.nanosec = 2000;

@@ -48,13 +48,13 @@ DataReaderListenerImpl_V2XMessage::on_data_available(DDS::DataReader_ptr reader)
 	DDS::ReturnCode_t error = reader_i->take_next_sample(v2x_message, info);
 
 	if (error == DDS::RETCODE_OK) {
-		/*cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
+	/*	cout << "SampleInfo.sample_rank = " << info.sample_rank << endl;
 		cout << "SampleInfo.instance_state = " << info.instance_state << endl;*/
 
 		if (info.valid_data) {
 
-	/*		cout << "V2X: senderId  = " << v2x_message.sender_id << endl
-				<< "     receiverId = " << v2x_message.recipient_id << endl
+			//cout << "......................V2X: senderId  = " << v2x_message.message << endl;
+		/*		<< "     receiverId = " << v2x_message.recipient_id << endl
 				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;*/
 			
 			v2x_queue.push(v2x_message);
@@ -100,6 +100,9 @@ DataReaderListenerImpl_V2XMessage::on_requested_deadline_missed(
   DDS::DataReader_ptr /*reader*/,
   const DDS::RequestedDeadlineMissedStatus& /*status*/)
 {
+
+	cout << "on_requested_deadline_missed" << endl;
+
 }
 
 void
@@ -107,6 +110,7 @@ DataReaderListenerImpl_V2XMessage::on_requested_incompatible_qos(
   DDS::DataReader_ptr /*reader*/,
   const DDS::RequestedIncompatibleQosStatus& /*status*/)
 {
+	cout << "on_requested_incompatible_qos" << endl;
 }
 
 void
@@ -114,6 +118,7 @@ DataReaderListenerImpl_V2XMessage::on_sample_rejected(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SampleRejectedStatus& /*status*/)
 {
+	cout << "on_sample_rejected" << endl;
 }
 
 void
@@ -121,6 +126,7 @@ DataReaderListenerImpl_V2XMessage::on_liveliness_changed(
   DDS::DataReader_ptr /*reader*/,
   const DDS::LivelinessChangedStatus& /*status*/)
 {
+	cout << "on_liveliness_Changed" << endl;
 }
 
 
@@ -130,6 +136,7 @@ DataReaderListenerImpl_V2XMessage::on_subscription_matched(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SubscriptionMatchedStatus& /*status*/)
 {
+	cout << "V2X on_subscription_matched" << endl;
 }
 
 void
@@ -137,4 +144,5 @@ DataReaderListenerImpl_V2XMessage::on_sample_lost(
   DDS::DataReader_ptr /*reader*/,
   const DDS::SampleLostStatus& /*status*/)
 {
+	cout << "on_samlpe lost" << endl;
 }
