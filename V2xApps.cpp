@@ -3,7 +3,7 @@
 #include <sstream>      // std::stringstream, std::stringbuf
 #include <iostream> //cout
 
-#include "TimeSync.h"
+#include "MriTimeSync.h"
 
 
 using std::cerr;
@@ -12,7 +12,7 @@ using std::endl;
 using std::string;
 
 #define PI 3.14159265359
-
+extern long THIS_APP_ID;
 
 
 string createBSMcoreData(Mri::VehData veh) {

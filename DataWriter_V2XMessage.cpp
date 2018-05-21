@@ -5,7 +5,7 @@
 
 
 #include <iostream>
-#include "TimeSync.h"
+#include "MriTimeSync.h"
 
 
 using std::cerr;

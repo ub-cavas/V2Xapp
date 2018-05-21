@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/lib/DrivingSimulatorProxy.dll
+/.tmp.drivedownload

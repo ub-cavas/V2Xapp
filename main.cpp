@@ -9,7 +9,7 @@
 #include "MriTypeSupportImpl.h"	//Mri data formats
 
 #include "Sleep.h"	// Sleep()
-#include "TimeSync.h"	//Sleep() 
+#include "MriTimeSync.h"	//Sleep() 
 
 #include "V2xApps.h"
 #include "main.h"

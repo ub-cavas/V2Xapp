@@ -19,7 +19,7 @@
 #include "DataReader_VehData.h"
 
 #include "QueueTs.h"
-#include "TimeSync.h"
+#include "MriTimeSync.h"
 #include "OpenDDS.h"
 #include "V2xApps.h"
 
@@ -253,7 +253,37 @@ void OpenDDSThread(int argc, char* argv[]){
 
 
 		// run timestamp synchronization
-		TimeSynchronization(participant, subscriber, publisher);
+		if (!TimeSynchronization(participant, subscriber, publisher))
+		{
+			//there was a problem with time synchronization
+
+			cout << "####    THERE WAS A PROBLEM WITH TIMESTAMP SYNCHRONIZATION. PROGRAM WILL CLOSE...    ####" << endl;
+
+			// Clean-up!
+			participant->delete_contained_entities();
+			dpf->delete_participant(participant);
+
+			TheServiceParticipant->shutdown();
+
+			threadTimestamp.detach();
+
+
+			finish_application = true;
+			Sleep(5000);
+
+			exit(-1);
+
+
+
+		}
+
+
+
+		//Timestamps  synchronized !
+		cout << "Timestamp synchronized. t=" << GetTimestamp() << endl << endl;
+
+
+		cout << "To quit press 'q'" << endl << endl;
 
 
 		//create reader to receive V2X message  Mri_V2XfromNS3  Mri_V2XtoNS3

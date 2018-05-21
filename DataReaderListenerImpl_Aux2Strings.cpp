@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-#include"TimeSync.h"	//Parse Aux message
+#include"MriTimeSync.h"	//Parse Aux message
 
 
 

@@ -300,16 +300,13 @@
     </ClCompile>
     <ClCompile Include="DataWriter_V2XMessage.cpp" />
     <ClCompile Include="DataWriter_VehData.cpp" />
+    <ClCompile Include="MriTimeSync.cpp" />
     <ClCompile Include="OpenDDST.cpp" />
     <ClCompile Include="ParticipantClass.cpp">
     </ClCompile>
     <ClCompile Include="PublisherClass.cpp">
     </ClCompile>
     <ClCompile Include="SubscriberClass.cpp">
-    </ClCompile>
-    <ClCompile Include="TimeSyncClient.cpp">
-    </ClCompile>
-    <ClCompile Include="TimeSyncServer.cpp">
     </ClCompile>
     <ClCompile Include="main.cpp">
     </ClCompile>
@@ -327,6 +324,7 @@
     <ClInclude Include="DataWriter_VehData.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mriCommon_Export.h" />
+    <ClInclude Include="MriTimeSync.h" />
     <ClInclude Include="OpenDDS.h" />
     <ClInclude Include="ParticipantClass.h" />
     <ClInclude Include="PublisherClass.h" />
@@ -334,7 +332,6 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Sleep.h" />
     <ClInclude Include="SubscriberClass.h" />
-    <ClInclude Include="TimeSync.h" />
     <ClInclude Include="V2xApps.h" />
   </ItemGroup>
   <ItemGroup>
@@ -354,9 +351,6 @@
   <ItemGroup>
     <None Include="MriC.inl" />
     <None Include="MriTypeSupportC.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="Mri.idl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
