@@ -53,9 +53,7 @@ DataReaderListenerImpl_V2XMessage::on_data_available(DDS::DataReader_ptr reader)
 
 		if (info.valid_data) {
 
-			//cout << "......................V2X: senderId  = " << v2x_message.message << endl;
-		/*		<< "     receiverId = " << v2x_message.recipient_id << endl
-				<< "sender_timestamp=" << v2x_message.sender_timestamp << endl;*/
+			
 			
 			v2x_queue.push(v2x_message);
 		}

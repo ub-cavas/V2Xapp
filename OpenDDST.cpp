@@ -160,26 +160,25 @@ void v2xMapThread() {
 		v2x_queue.pop(_v2x);
 		{
 			
+			//we do not process v2x dnpw => moved to opendds3 unity client
 			
-			_veh = readVehDatafromString((string)_v2x.message);
-			subjectCar1 = vehs_map[1];
-			
-			if (subjectCar1.vehicle_id!= _veh.vehicle_id)
-			{
-				distance = doNotPassWarning(subjectCar1.position_x, subjectCar1.position_y, subjectCar1.orient_heading, _veh.position_x, _veh.position_y, _veh.orient_heading);
+			//_veh = readVehDatafromString((string)_v2x.message);
+			//subjectCar1 = vehs_map[1];
+			//
+			//if (subjectCar1.vehicle_id!= _veh.vehicle_id)
+			//{
+			//	distance = doNotPassWarning(subjectCar1.position_x, subjectCar1.position_y, subjectCar1.orient_heading, _veh.position_x, _veh.position_y, _veh.orient_heading);
 
-				if (distance>0 && distance <160)
-				{
-					cout << endl <<" *** WARNING  distance= " << distance << " ***" <<  endl << endl;
-					sendDNPWMessage(distance, 5); // 5 is an app id of OpenDS 1
-				}
+			//	if (distance>0 && distance <160)
+			//	{
+			//		cout << endl <<" *** WARNING  distance= " << distance << " ***" <<  endl << endl;
+			//		sendDNPWMessage(distance, 5); // 5 is an app id of OpenDS 1
+			//	}
 
 				
 
-		/*		cout << endl << GetTimestamp() << "   V2X: senderId  = " << _v2x.sender_id
-					<< "     receiverId = " << _v2x.recipient_id
-					<< "     veh_X=" << _veh.position_x << " y=" << _veh.position_y << endl;*/
-			}
+	
+			//}
 
 			
 		}
@@ -287,9 +286,8 @@ void OpenDDSThread(int argc, char* argv[]){
 
 
 		//create reader to receive V2X message  Mri_V2XfromNS3  Mri_V2XtoNS3
-		DataReader_V2XMessage reader_v2xmessage(participant, subscriber, "Mri_V2XfromNS3");
+		//DataReader_V2XMessage reader_v2xmessage(participant, subscriber, "Mri_V2XfromNS3");
 
-		//DataReader_V2XMessage reader_v2xmessage(participant, subscriber, "Mri_V2XtoNS3");
 
 		// writer
 		DataWriter_V2XMessage writer_v2xMessage(participant, publisher, "Mri_V2XtoNS3");
@@ -302,7 +300,8 @@ void OpenDDSThread(int argc, char* argv[]){
 		DataReader_VehData reader_subject_car(participant, subscriber, "Mri_SubjectCar");
 
 
-
+		//// to send dnpw message we need:
+		//DataWriter_Aux2Strings sender(participant, publisher, "Mri_Control");
 		
 
 		while (key != 'q')

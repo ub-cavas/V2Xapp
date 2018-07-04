@@ -285,9 +285,6 @@
 -->
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="mri_v2x.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="DataReaderListenerImpl_Aux2Strings.cpp">
     </ClCompile>
     <ClCompile Include="DataReaderListenerImpl_V2XMessage.cpp" />

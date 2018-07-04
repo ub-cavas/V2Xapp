@@ -146,7 +146,4 @@
       <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="mri_v2x.rc" />
-  </ItemGroup>
 </Project>

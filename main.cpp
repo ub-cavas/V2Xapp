@@ -37,9 +37,13 @@ int main(int argc, char* argv[]) {
 
 	std::thread threadOpenDDS(OpenDDSThread, argc, argv);
 	std::thread threadVehsMap(vehsMapThread);
-	std::thread threadV2Xreading(v2xMapThread);
-	//close thread
-
+	
+	
+	
+	
+	//rd
+	//std::thread threadV2Xreading(v2xMapThread);
+	
 	
 
 	//// start thread OpenDDS
@@ -79,32 +83,23 @@ int main(int argc, char* argv[]) {
 			}
 			wait_time_factor = 400 / map_size;
 
-
 			//std::cout << "------------------------------------------------"<< std::endl;
-
-
-
 
 			for (auto& x : vehs_map_copy) {
 				
-
 				//send V2X message in random intervals of time
 				//sendV2X
 
 				//message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
 				message_text = createBSMcoreData(x.second);
-				
 				sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
-
 				wait_time_random = rand() % wait_time_factor;
 				Sleep(wait_time_random);
 
 				//std::cout << "wait time " << wait_time_random << std::endl;
-
 				//std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
 			}
 			
-
 			old_veh_timestamp = GetTimestamp() - 50;	//to find veh data not updated for 50 x 10ms = 500 ms
 
 			for (auto& x : vehs_map_copy) {
@@ -116,13 +111,8 @@ int main(int argc, char* argv[]) {
 						veh_id_to_remove = x.second.vehicle_id;
 						break;
 					}
-					
-
 				}
 			}
-
-
-
 
 			std::cout << ".";
 			//std::cout << std::endl << std::endl;
@@ -135,7 +125,7 @@ int main(int argc, char* argv[]) {
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-	threadV2Xreading.detach();
+	//threadV2Xreading.detach(); rd
 	threadVehsMap.detach();
 	threadOpenDDS.detach();
 	
