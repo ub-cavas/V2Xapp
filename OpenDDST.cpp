@@ -297,7 +297,9 @@ void OpenDDSThread(int argc, char* argv[]){
 		//WARNING: both readers uses the same "on_data_available" code in DataReaderListenerImpl_VehData
 		//we can do this, because formats of the messages are the same
 		DataReader_VehData reader_traffic_vehs(participant, subscriber, "Mri_TrafficVeh");
-		DataReader_VehData reader_subject_car(participant, subscriber, "Mri_SubjectCar");
+		
+		// 8/3/2018 rd disabled datareader, subjectCar sends v2x BSM messages independently
+		//DataReader_VehData reader_subject_car(participant, subscriber, "Mri_SubjectCar");
 
 
 		//// to send dnpw message we need:
