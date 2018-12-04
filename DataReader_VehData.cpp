@@ -64,7 +64,12 @@ DataReader_VehData::createDataReader(
 	dr_qos.reliability.kind = DDS::BEST_EFFORT_RELIABILITY_QOS;
 	dr_qos.reliability.max_blocking_time.sec = 0;
 	dr_qos.reliability.max_blocking_time.nanosec = 2000;
-	dr_qos.resource_limits.max_samples_per_instance = DDS::LENGTH_UNLIMITED;
+	
+	//dr_qos.resource_limits.max_samples_per_instance = DDS::LENGTH_UNLIMITED;
+	
+	dr_qos.resource_limits.max_samples_per_instance = 100;
+
+
 
 
 	// Create DataReader

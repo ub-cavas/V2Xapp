@@ -18,8 +18,15 @@ extern long THIS_APP_ID;
 string createBSMcoreData(Mri::VehData veh) {
 
 
+	const int BRAKE_BOOST_UNAVAILABLE = 0;
+	const int BRAKE_BOOST_OFF = 1;
+	const int BRAKE_BOOST_ON = 2;
+	int brakeBoost = BRAKE_BOOST_UNAVAILABLE;
+
 	std::stringstream tekst;
-	tekst << veh.orient_heading << ";" << veh.position_x << ";" << veh.position_y << ";" << veh.position_z << ";" << veh.speed << ";" << veh.vehicle_id;
+	tekst	<< veh.orient_heading << ";" << veh.position_x << ";" << veh.position_y 
+			<< ";" << veh.position_z << ";" << veh.speed << ";" << veh.vehicle_id
+			<< ";" << brakeBoost;
 	return tekst.str();
 
 
