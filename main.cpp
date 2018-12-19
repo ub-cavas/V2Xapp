@@ -88,13 +88,20 @@ int main(int argc, char* argv[]) {
 			for (auto& x : vehs_map_copy) {
 				
 				//send V2X message in random intervals of time
-				//sendV2X
+				
 
-				//message_text = "Hi! This is vehicle " + std::to_string(x.second.vehicle_id) + ". My location is: " + std::to_string(x.second.position_x) + ";" + std::to_string(x.second.position_y);
-				message_text = createBSMcoreData(x.second);
-				sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
-				wait_time_random = rand() % wait_time_factor;
-				Sleep(wait_time_random);
+				//20181219 rd
+				//don't send BSM from human controlled vehs (Unity) -  skip vehs id 1 to 10
+
+				if (x.first >10)
+				{
+					message_text = createBSMcoreData(x.second);
+					sendV2X(x.second.vehicle_id, GetTimestamp(), message_text);
+					wait_time_random = rand() % wait_time_factor;
+					Sleep(wait_time_random);
+				}
+
+				
 
 				//std::cout << "wait time " << wait_time_random << std::endl;
 				//std::cout << "timestamp=" << x.second.timestamp << " veh_id=" << x.second.vehicle_id << " x=" << x.second.position_x << " y=" << x.second.position_y << std::endl;
